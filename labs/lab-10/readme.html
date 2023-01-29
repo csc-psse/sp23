@@ -1,0 +1,1428 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 10 : Class Structure &amp; Diagraming in C++ &#8212; CSC 200&lt;br&gt;Problem Solving for Science &amp; Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Week 11" href="../../lectures/w11.html" />
+    <link rel="prev" title="Week 10" href="../../lectures/w10.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 200<br>Problem Solving for Science & Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Start Here
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures &amp; Labs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w1.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-01/readme.html">
+     Lab 1 : Introduction &amp; Expectations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w2.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-02/readme.html">
+     Lab 2 :  IDE Setup &amp; Introduction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w3.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-03/readme.html">
+     Lab 3 :  Strings, Operators, &amp; Expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w4.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-04/readme.html">
+     Lab 4 :  Decision making
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w5.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-05/readme.html">
+     Lab 5 :  Loops in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w6.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-06/readme.html">
+     Lab 6 :  Functions in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w7.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-07/readme.html">
+     Lab 7 :  Array and Vector in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/w8.html">
+   Week 8
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w9.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-09/readme.html">
+     Lab 9 :  File Input/ Output in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../lectures/w10.html">
+   Week 10
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lab 10 :
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Class
+      </span>
+     </code>
+     Structure &amp; Diagraming in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-11/readme.html">
+     Lab 11 :  Inheritance &amp; Overloading in C++
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-11/game.html">
+     Lab 11 : Game files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w12.html">
+   Week 12
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-12/readme.html">
+     Lab 12 : Pointers in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/w13.html">
+   Week 13
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/w14.html">
+   Week 14
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/labs/lab-10/readme.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-introduction">
+   Part 1. Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Class
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-class-definition">
+   Part 2.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Class
+    </span>
+   </code>
+   Definition
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declaring-objects">
+     Declaring Objects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-data-members-and-member-functions">
+     Accessing data members and member functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-data-members">
+     Accessing Data Members
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#access-modifier-in-c">
+     Access modifier in C++
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#public">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Public
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#private">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Private
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#protected">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Protected
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#member-functions-in-classes">
+     Member Functions in Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constructor">
+     Constructor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#destructors">
+     Destructors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-3-exercises">
+   Part 3. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lab 10 : Class Structure & Diagraming in C++</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-introduction">
+   Part 1. Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Class
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-class-definition">
+   Part 2.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Class
+    </span>
+   </code>
+   Definition
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declaring-objects">
+     Declaring Objects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-data-members-and-member-functions">
+     Accessing data members and member functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-data-members">
+     Accessing Data Members
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#access-modifier-in-c">
+     Access modifier in C++
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#public">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Public
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#private">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Private
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#protected">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Protected
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#member-functions-in-classes">
+     Member Functions in Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constructor">
+     Constructor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#destructors">
+     Destructors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-3-exercises">
+   Part 3. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-10-class-structure-diagraming-in-c">
+<h1>Lab 10 : <code class="docutils literal notranslate"><span class="pre">Class</span></code> Structure &amp; Diagraming in C++<a class="headerlink" href="#lab-10-class-structure-diagraming-in-c" title="Permalink to this headline">#</a></h1>
+<p>Welcome to the eighth session of  CSC 200 lab! This will familiarize you with reading class structure as well as give you some experience in their proper use. <strong>Be sure to read and follow all instructions unless otherwise specified.</strong>  You’ll find the table of contents for this lab below.</p>
+<section id="part-1-introduction">
+<h2>Part 1. Introduction<a class="headerlink" href="#part-1-introduction" title="Permalink to this headline">#</a></h2>
+<section id="class">
+<h3><code class="docutils literal notranslate"><span class="pre">Class</span></code><a class="headerlink" href="#class" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">A <code class="docutils literal notranslate"><span class="pre">class</span></code> in C++ is the building block that leads to Object-Oriented programming. It is a user-defined data type, which holds its own data members and member functions, which can be accessed and used by creating an instance of that <code class="docutils literal notranslate"><span class="pre">class</span></code>. A C++ <code class="docutils literal notranslate"><span class="pre">class</span></code> is like a blueprint for an object.
+For Example: Consider the <code class="docutils literal notranslate"><span class="pre">Class</span></code> of <code class="docutils literal notranslate"><span class="pre">Cars</span></code>. There may be many cars with different names and brand but all of them will share some common properties like all of them will have <em>4 wheels</em>, <em>Speed Limit</em>, <em>Mileage range</em>, etc. So here, <code class="docutils literal notranslate"><span class="pre">Car</span></code> is the <code class="docutils literal notranslate"><span class="pre">class</span></code> and wheels, speed limits, mileage are their properties.</p>
+<ul class="simple">
+<li><p class="sd-card-text">A <code class="docutils literal notranslate"><span class="pre">Class</span></code> is a user defined data-type which has data members and member functions.</p></li>
+<li><p class="sd-card-text">Data members are the data variables and member functions are the functions used to manipulate these variables and together these data members and member functions defines the properties and behavior of the objects in a <code class="docutils literal notranslate"><span class="pre">Class</span></code>.</p></li>
+<li><p class="sd-card-text">In the above example of class <code class="docutils literal notranslate"><span class="pre">Car</span></code>, the data member will be <em>speed limit</em>, <em>mileage</em> etc and member functions can be <em>apply brakes</em>, <em>increase speed</em> etc.</p></li>
+</ul>
+<p class="sd-card-text">An <strong>Object</strong> is an instance of a <code class="docutils literal notranslate"><span class="pre">Class</span></code>. When a class is defined, no memory is allocated but when it is instantiated (i.e. an object is created) memory is allocated.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-class-definition">
+<h2>Part 2. <code class="docutils literal notranslate"><span class="pre">Class</span></code> Definition<a class="headerlink" href="#part-2-class-definition" title="Permalink to this headline">#</a></h2>
+<p>A class is defined in C++ using keyword class followed by the name of class. The body of class is defined inside the curly brackets and terminated by a semicolon at the end.</p>
+<img alt="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Classes-and-Objects-in-C.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Classes-and-Objects-in-C.png" />
+<section id="declaring-objects">
+<h3>Declaring Objects<a class="headerlink" href="#declaring-objects" title="Permalink to this headline">#</a></h3>
+<p>When a class is defined, only the specification for the object is defined; no memory or storage is allocated. To use the data and access functions defined in the class, you need to create objects.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Syntax</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Class</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="n">ObjectName</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-data-members-and-member-functions">
+<h3>Accessing data members and member functions<a class="headerlink" href="#accessing-data-members-and-member-functions" title="Permalink to this headline">#</a></h3>
+<p>The data members and member functions of class can be accessed using the dot(‘.’) operator with the object. For example if the name of object is <code class="docutils literal notranslate"><span class="pre">obj</span></code> and you want to access the member function with the name <code class="docutils literal notranslate"><span class="pre">printName()</span></code> then you will have to write <code class="docutils literal notranslate"><span class="pre">obj.printName()</span></code>.</p>
+</section>
+<section id="accessing-data-members">
+<h3>Accessing Data Members<a class="headerlink" href="#accessing-data-members" title="Permalink to this headline">#</a></h3>
+<p>The public data members are also accessed in the same way given however the private data members are not allowed to be accessed directly by the object. Accessing a data member depends solely on the access control of that data member.</p>
+<p>This access control is given by Access modifiers in C++. There are three access modifiers : <strong>public, private and protected</strong>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to demonstrate</span>
+<span class="c1">// accessing of data members</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Geeks</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Access specifier</span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// Data Members</span>
+<span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">geekname</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// Member Functions()</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printname</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Geekname is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">geekname</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// Declare an object of class geeks</span>
+<span class="w">    </span><span class="n">Geeks</span><span class="w"> </span><span class="n">obj1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// accessing data member</span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">geekname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Abhi&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// accessing member function</span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">printname</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">output</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Geekname is: Abhi
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="access-modifier-in-c">
+<h3>Access modifier in C++<a class="headerlink" href="#access-modifier-in-c" title="Permalink to this headline">#</a></h3>
+<p>Access Modifiers or Access Specifiers in a class are used to assign the accessibility to the class members. That is, it sets some restrictions on the class members not to get directly accessed by the outside functions.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Types of access modifiers available in C++</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Public</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Private</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Protected</span></code></p>
+<p class="sd-card-text"><em>Note: If we do not specify any access modifiers for the members inside the class then by default the access modifier for the members will be <code class="docutils literal notranslate"><span class="pre">Private</span></code>.</em></p>
+</div>
+</div>
+<p>Let us now look at each one these access modifiers in details:</p>
+<section id="public">
+<h4><code class="docutils literal notranslate"><span class="pre">Public</span></code><a class="headerlink" href="#public" title="Permalink to this headline">#</a></h4>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">All the class members declared under the public specifier will be available to everyone. The data members and member functions declared as public can be accessed by other classes and functions too. The public members of a class can be accessed from anywhere in the program using the direct member access operator (.) with the object of that class.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to demonstrate public</span>
+<span class="c1">// access modifier</span>
+
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// class definition</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="nf">compute_area</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mf">3.14</span><span class="o">*</span><span class="n">radius</span><span class="o">*</span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Circle</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// accessing public datamember outside class</span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.5</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Radius is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">radius</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Area is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">compute_area</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Radius is: <span class="m">5</span>.5
+Area is: <span class="m">94</span>.985
+</pre></div>
+</div>
+</div>
+</div>
+<p class="sd-card-text">In the above program the data member <code class="docutils literal notranslate"><span class="pre">radius</span></code> is declared as <code class="docutils literal notranslate"><span class="pre">public</span></code> so it could be accessed outside the class and thus was allowed access from inside <code class="docutils literal notranslate"><span class="pre">main()</span></code>.</p>
+</div>
+</div>
+</section>
+<section id="private">
+<h4><code class="docutils literal notranslate"><span class="pre">Private</span></code><a class="headerlink" href="#private" title="Permalink to this headline">#</a></h4>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">The class members declared as <em>private</em> can be accessed only by the member functions inside the class. They are not allowed to be accessed directly by any object or function outside the class. Only the member functions or the <a class="reference external" href="https://www.geeksforgeeks.org/friend-class-function-cpp/">friend functions</a> are allowed to access the private data members of a class.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to demonstrate private</span>
+<span class="c1">// access modifier</span>
+
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// private data member</span>
+<span class="w">    </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// public member function</span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">compute_area</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="c1">// member function can access private</span>
+<span class="w">            </span><span class="c1">// data member radius</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mf">3.14</span><span class="o">*</span><span class="n">radius</span><span class="o">*</span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// creating object of the class</span>
+<span class="w">    </span><span class="n">Circle</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// trying to access private data member</span>
+<span class="w">    </span><span class="c1">// directly outside the class</span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Area is:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">compute_area</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> In <span class="k">function</span> <span class="s1">&#39;int main()&#39;</span>:
+<span class="m">11</span>:16: error: <span class="s1">&#39;double Circle::radius&#39;</span> is private
+         double radius<span class="p">;</span>
+                ^
+<span class="m">31</span>:9: error: within this context
+     obj.radius <span class="o">=</span> <span class="m">1</span>.5<span class="p">;</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The output of above program is a compile time error because we are not allowed to access the private data members of a class directly outside the class. Yet an access to obj.radius is attempted, radius being a private data member we obtain a compilation error.</p>
+</div>
+</div>
+<p class="sd-card-text">However, we can access the private data members of a class indirectly using the public member functions of the class.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to demonstrate private</span>
+<span class="c1">// access modifier</span>
+
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// private data member</span>
+<span class="w">    </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// public member function</span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">compute_area</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w">   </span><span class="c1">// member function can access private</span>
+<span class="w">            </span><span class="c1">// data member radius</span>
+<span class="w">            </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span>
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="o">*</span><span class="n">radius</span><span class="o">*</span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Radius is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Area is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">area</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// creating object of the class</span>
+<span class="w">    </span><span class="n">Circle</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// trying to access private data member</span>
+<span class="w">    </span><span class="c1">// directly outside the class</span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">compute_area</span><span class="p">(</span><span class="mf">1.5</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Radius is: <span class="m">1</span>.5
+Area is: <span class="m">7</span>.065
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="protected">
+<h4><code class="docutils literal notranslate"><span class="pre">Protected</span></code><a class="headerlink" href="#protected" title="Permalink to this headline">#</a></h4>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Protected access modifier is similar to private access modifier in the sense that it can’t be accessed outside of it’s class unless with the help of friend class, the difference is that the class members declared as Protected can be accessed by any subclass(derived class) of that class as well.</p>
+<p class="sd-card-text"><em>Note: This access through inheritance can alter the access modifier of the elements of base class in derived class depending on the <a class="reference external" href="https://www.geeksforgeeks.org/inheritance-in-c/#Modes">modes of Inheritance</a> of Inheritance (Don’t worry, you’ll this nex session).</em></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to demonstrate</span>
+<span class="c1">// protected access modifier</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+
+<span class="c1">// base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Parent</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// protected data members</span>
+<span class="w">    </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id_protected</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// sub class or derived class from public base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Parent</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">setId</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Child class is able to access the inherited</span>
+<span class="w">        </span><span class="c1">// protected data members of base class</span>
+
+<span class="w">        </span><span class="n">id_protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">displayId</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;id_protected is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">id_protected</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">Child</span><span class="w"> </span><span class="n">obj1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// member function of the derived class can</span>
+<span class="w">    </span><span class="c1">// access the protected data members of the base class</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">setId</span><span class="p">(</span><span class="mi">81</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">displayId</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>id_protected is: <span class="m">81</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="member-functions-in-classes">
+<h3>Member Functions in Classes<a class="headerlink" href="#member-functions-in-classes" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Defining a member function:</div>
+<ul class="simple">
+<li><p class="sd-card-text">Inside class definition</p></li>
+<li><p class="sd-card-text">Outside class definition</p></li>
+</ul>
+</div>
+</div>
+<p class="sd-card-text">To define a member function outside the class definition we have to use the scope resolution :: operator along with class name and function name.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to demonstrate function</span>
+<span class="c1">// declaration outside class</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Geeks</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">geekname</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// printname is not defined inside class definition</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printname</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// printid is defined inside class definition</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printid</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Geek id is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// Definition of printname using scope resolution operator ::</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Geeks::printname</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Geekname is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">geekname</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">Geeks</span><span class="w"> </span><span class="n">obj1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">geekname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xyz&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">id</span><span class="o">=</span><span class="mi">15</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// call printname()</span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">printname</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// call printid()</span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">printid</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Geekname</span><span class="w"> </span><span class="n">is</span><span class="o">:</span><span class="w"> </span><span class="n">xyz</span><span class="w"></span>
+<span class="n">Geek</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="n">is</span><span class="o">:</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p class="sd-card-text">All the member functions defined inside the class definition are by default <strong>inline</strong>, but you can also make any non-class function inline by using keyword inline with them. Inline functions are actual functions, which are copied everywhere during compilation, like pre-processor macro, so the overhead of function calling is reduced.</p></li>
+<li><p class="sd-card-text">Declaring a<a class="reference external" href="https://www.geeksforgeeks.org/friend-class-function-cpp/"> friend function </a>is a way to give private access to a non-member function.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="constructor">
+<h3>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Constructors are special class members which are called by the compiler every time an object of that class is instantiated. Constructors have the same name as the class and may be defined inside or outside the class definition.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Types of constructors:</div>
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/constructors-c/">Default constructors</a></p></li>
+<li><p class="sd-card-text">Parameterized constructors</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/copy-constructor-in-cpp/">Copy constructors</a></p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to demonstrate constructors</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Geeks</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">//Default Constructor</span>
+<span class="w">    </span><span class="n">Geeks</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Default Constructor called&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">id</span><span class="o">=</span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">//Parameterized Constructor</span>
+<span class="w">    </span><span class="n">Geeks</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Parameterized Constructor called&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">id</span><span class="o">=</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// obj1 will call Default Constructor</span>
+<span class="w">    </span><span class="n">Geeks</span><span class="w"> </span><span class="n">obj1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Geek id is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">obj1</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// obj1 will call Parameterized Constructor</span>
+<span class="w">    </span><span class="n">Geeks</span><span class="w"> </span><span class="n">obj2</span><span class="p">(</span><span class="mi">21</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Geek id is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">obj2</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Default</span> <span class="n">Constructor</span> <span class="n">called</span>
+<span class="n">Geek</span> <span class="nb">id</span> <span class="ow">is</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">Parameterized</span> <span class="n">Constructor</span> <span class="n">called</span>
+<span class="n">Geek</span> <span class="nb">id</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">21</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p class="sd-card-text">A <strong>Copy Constructor</strong> creates a new object, which is exact copy of the existing object. The compiler provides a default Copy Constructor to all the classes.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+syntax</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="o">-</span><span class="n">name</span><span class="w"> </span><span class="p">(</span><span class="k">class</span><span class="o">-</span><span class="n">name</span><span class="w"> </span><span class="o">&amp;</span><span class="p">){}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="destructors">
+<h3>Destructors<a class="headerlink" href="#destructors" title="Permalink to this headline">#</a></h3>
+<p>Destructor is another special member function that is called by the compiler when the scope of the object ends.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to explain destructors</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Geeks</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">//Definition for Destructor</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Geeks</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Destructor called for id: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Geeks</span><span class="w"> </span><span class="n">obj1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">id</span><span class="o">=</span><span class="mi">7</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">Geeks</span><span class="w"> </span><span class="n">obj2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">obj2</span><span class="p">.</span><span class="n">id</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="c1">// Scope for obj2 ends here</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="c1">// Scope for obj1 ends here</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Destructor called <span class="k">for</span> id: <span class="m">0</span>
+Destructor called <span class="k">for</span> id: <span class="m">1</span>
+Destructor called <span class="k">for</span> id: <span class="m">2</span>
+Destructor called <span class="k">for</span> id: <span class="m">3</span>
+Destructor called <span class="k">for</span> id: <span class="m">4</span>
+Destructor called <span class="k">for</span> id: <span class="m">7</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-3-exercises">
+<h2>Part 3. Exercises<a class="headerlink" href="#part-3-exercises" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Overview</div>
+<ol class="simple">
+<li><p class="sd-card-text">Define and implement a class called <code class="docutils literal notranslate"><span class="pre">UltimateBridgeSolver</span></code>. <strong>Use a header file</strong> for your class declaration <strong>and a separate .cpp file</strong> for your implementation.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">UltimateBridgeSolver</span></code> should contain the following variables and functions, note what needs to be private vs public:</p></li>
+<li><p class="sd-card-text">Create a <strong>new file</strong> to serve as your <strong>main program file</strong> and save it as <strong>UBSTester.cpp</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text"><em>This file should only have one function, the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function. In your <code class="docutils literal notranslate"><span class="pre">main()</span></code></em></p>
+<ul>
+<li><p class="sd-card-text">Guidance to follow…</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<dl class="simple myst">
+<dt>What to Submit</dt><dd><p class="sd-card-text">UltimateBridgeSolver.h</p>
+</dd>
+<dd><p class="sd-card-text">​UltimateBridgeSolver.cpp</p>
+</dd>
+<dd><p class="sd-card-text">UBSTester.cpp</p>
+</dd>
+</dl>
+</div>
+</div>
+<figure class="align-center" id="id1">
+<img alt="../../_images/uml.png" src="../../_images/uml.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Below are descriptions for each function</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Function descriptions</div>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">UltimateBridgeSolver()</span></code></dt><dd><p class="sd-card-text">is a no argument constructor that sets smallLen to 1 and bigLen to 5</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">UltimateBridgeSolver(b</span> <span class="pre">:</span> <span class="pre">int)</span></code></dt><dd><p class="sd-card-text">is a constructor that sets bigLen to b</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">getBigLen()</span></code></dt><dd><p class="sd-card-text">returns the value of <code class="docutils literal notranslate"><span class="pre">bigLen</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">getSmallLen()</span></code></dt><dd><p class="sd-card-text">returns the value of <code class="docutils literal notranslate"><span class="pre">smallLen</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">canBuild(smalls</span> <span class="pre">:</span> <span class="pre">int,</span> <span class="pre">bigs</span> <span class="pre">:</span> <span class="pre">int,</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">int)</span></code></dt><dd><p class="sd-card-text">returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if we can build a bridge of exactly of length <code class="docutils literal notranslate"><span class="pre">n</span></code> using at most smalls boards of length <code class="docutils literal notranslate"><span class="pre">smallLen</span></code> and at most bigs boards of <code class="docutils literal notranslate"><span class="pre">bigLen</span></code>. For example, if <code class="docutils literal notranslate"><span class="pre">bigLen</span></code> is 8, then <code class="docutils literal notranslate"><span class="pre">canBuild(1,</span> <span class="pre">3,</span> <span class="pre">5)</span></code> would return <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">howManyBigs(smalls</span> <span class="pre">:</span> <span class="pre">int,</span> <span class="pre">bigs</span> <span class="pre">:</span> <span class="pre">int,</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">int)</span></code></dt><dd><p class="sd-card-text">returns exactly how many boards of length <code class="docutils literal notranslate"><span class="pre">bigLen</span></code> we need to build a bridge of length <code class="docutils literal notranslate"><span class="pre">n</span></code> or -1 if it can’t be built. Hint: Use a layered call to <code class="docutils literal notranslate"><span class="pre">canBuild()</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">howManySmalls(smalls</span> <span class="pre">:</span> <span class="pre">int,</span> <span class="pre">bigs</span> <span class="pre">:</span> <span class="pre">int,</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">int)</span></code></dt><dd><p class="sd-card-text">returns exactly how many boards of length <code class="docutils literal notranslate"><span class="pre">smallLen</span></code> we need to build a bridge of length <code class="docutils literal notranslate"><span class="pre">n</span></code> or -1 if it can’t be built. Hint: Use layered calls to <code class="docutils literal notranslate"><span class="pre">canBuild()</span></code> and <code class="docutils literal notranslate"><span class="pre">howManyBigs()</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">solve(smalls</span> <span class="pre">:</span> <span class="pre">int,</span> <span class="pre">bigs</span> <span class="pre">:</span> <span class="pre">int,</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">int)</span></code></dt><dd><p class="sd-card-text">prints how many boards of each length are needed to build a bridge of length <code class="docutils literal notranslate"><span class="pre">n</span></code> or prints that the bridge cannot be made. Hint: Use layered calls to <code class="docutils literal notranslate"><span class="pre">canBuild()</span></code>, <code class="docutils literal notranslate"><span class="pre">howManyBigs()</span></code>, and <code class="docutils literal notranslate"><span class="pre">howManySmalls()</span></code></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<code class="docutils literal notranslate"><span class="pre">main()</span></code></div>
+<ul>
+<li><p class="sd-card-text">Create an instance of your <code class="docutils literal notranslate"><span class="pre">UltimateBridgeSolver</span></code> using the no argument constructor</p></li>
+<li><p class="sd-card-text">Call <code class="docutils literal notranslate"><span class="pre">getBigLen()</span></code> and <code class="docutils literal notranslate"><span class="pre">getSmallLen()</span></code> as shown below to test that they are correct (in this example, the reference variable to my <code class="docutils literal notranslate"><span class="pre">UltimateBridgeSolver</span></code> object is called <code class="docutils literal notranslate"><span class="pre">mySolver</span></code>). If they print <code class="docutils literal notranslate"><span class="pre">false</span></code> (i.e., 0) then there is a bug in your code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">mySolver</span><span class="o">.</span><span class="n">getBigLen</span><span class="p">()</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">mySolver</span><span class="o">.</span><span class="n">getSmallLen</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="sd-card-text">Perform the following calls testing what your functions return, as shown above and in the testing slides. I’ve given you partial answers, the rest you should figure out on your own:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w">       </span><span class="c1">//can build with 1 big and 3 smalls</span>
+<span class="n">solve</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span><span class="w">       </span><span class="c1">//can’t build</span>
+<span class="n">solve</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="w">      </span><span class="c1">//can’t build</span>
+<span class="n">solve</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="w">     </span><span class="c1">//can build with 14 smalls</span>
+<span class="n">solve</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w">       </span><span class="c1">//can build with 1 big and 2 smalls</span>
+</pre></div>
+</div>
+</li>
+<li><p class="sd-card-text">Create an instance of your <code class="docutils literal notranslate"><span class="pre">UltimateBridgeSolver</span></code> using the overloaded <code class="docutils literal notranslate"><span class="pre">constructor</span></code>.</p></li>
+<li><p class="sd-card-text">Create your own set of tests to ensure your functions work as expected for both instances of the class (default and overloaded constructor)</p></li>
+</ul>
+</div>
+</div>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Code was divided into appropriate files, as specified, and was done so correctly</p></li>
+<li><p class="sd-card-text">Member variables are correctly labeled public or private, per UML diagram</p></li>
+<li><p class="sd-card-text">Member functions are correctly labeled public or private, per UML diagram</p></li>
+<li><p class="sd-card-text">Member function signatures match UML diagram</p></li>
+<li><p class="sd-card-text">Functions work correctly, as specified</p></li>
+<li><p class="sd-card-text">Correct use of layered calls, as instructed</p></li>
+<li><p class="sd-card-text">Tests performed correctly and as instructed for default constructor object</p></li>
+<li><p class="sd-card-text">Tests performed correctly and as instructed for overloaded constructor object</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/lab-10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../lectures/w10.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 10</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../lectures/w11.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 11</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

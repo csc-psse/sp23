@@ -1,0 +1,1605 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 11 : Inheritance &amp; Overloading in C++ &#8212; CSC 200&lt;br&gt;Problem Solving for Science &amp; Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 11 : Game files" href="game.html" />
+    <link rel="prev" title="Week 11" href="../../lectures/w11.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 200<br>Problem Solving for Science & Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Start Here
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures &amp; Labs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w1.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-01/readme.html">
+     Lab 1 : Introduction &amp; Expectations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w2.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-02/readme.html">
+     Lab 2 :  IDE Setup &amp; Introduction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w3.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-03/readme.html">
+     Lab 3 :  Strings, Operators, &amp; Expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w4.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-04/readme.html">
+     Lab 4 :  Decision making
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w5.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-05/readme.html">
+     Lab 5 :  Loops in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w6.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-06/readme.html">
+     Lab 6 :  Functions in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w7.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-07/readme.html">
+     Lab 7 :  Array and Vector in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/w8.html">
+   Week 8
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w9.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-09/readme.html">
+     Lab 9 :  File Input/ Output in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-10/readme.html">
+     Lab 10 :
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Class
+      </span>
+     </code>
+     Structure &amp; Diagraming in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../lectures/w11.html">
+   Week 11
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lab 11 :  Inheritance &amp; Overloading in C++
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="game.html">
+     Lab 11 : Game files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w12.html">
+   Week 12
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-12/readme.html">
+     Lab 12 : Pointers in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/w13.html">
+   Week 13
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/w14.html">
+   Week 14
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/labs/lab-11/readme.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-introduction-to-inheritance-in-c">
+   Part 1 : Introduction to Inheritance In C++
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-and-when-to-use-inheritance">
+     Why and when to use inheritance?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modes-of-inheritance">
+     Modes of Inheritance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-of-inheritance-in-c">
+     Types of Inheritance in C++
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#single-inheritance">
+       Single Inheritance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-inheritance">
+       Multiple Inheritance
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multilevel-inheritance">
+     Multilevel Inheritance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hierarchical-inheritance">
+       Hierarchical Inheritance
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hybrid-virtual-inheritance">
+     Hybrid (Virtual) Inheritance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-special-case-of-hybrid-inheritance-multipath-inheritance">
+       A special case of hybrid inheritance: Multipath inheritance
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ambiguity">
+     Ambiguity
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-introduction-to-overloading-in-c">
+   Part 2 : Introduction to Overloading In C++
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-overloading-in-c">
+     Function Overloading in C++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operators-overloading-in-c">
+     Operators Overloading in C++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overloadable-non-overloadable-operators">
+     Overloadable/Non-overloadable Operators
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-3-exercises">
+   Part 3 : Exercises
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lab 11 :  Inheritance & Overloading in C++</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-introduction-to-inheritance-in-c">
+   Part 1 : Introduction to Inheritance In C++
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-and-when-to-use-inheritance">
+     Why and when to use inheritance?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modes-of-inheritance">
+     Modes of Inheritance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-of-inheritance-in-c">
+     Types of Inheritance in C++
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#single-inheritance">
+       Single Inheritance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-inheritance">
+       Multiple Inheritance
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multilevel-inheritance">
+     Multilevel Inheritance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hierarchical-inheritance">
+       Hierarchical Inheritance
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hybrid-virtual-inheritance">
+     Hybrid (Virtual) Inheritance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-special-case-of-hybrid-inheritance-multipath-inheritance">
+       A special case of hybrid inheritance: Multipath inheritance
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ambiguity">
+     Ambiguity
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-introduction-to-overloading-in-c">
+   Part 2 : Introduction to Overloading In C++
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-overloading-in-c">
+     Function Overloading in C++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operators-overloading-in-c">
+     Operators Overloading in C++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overloadable-non-overloadable-operators">
+     Overloadable/Non-overloadable Operators
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-3-exercises">
+   Part 3 : Exercises
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-11-inheritance-overloading-in-c">
+<h1>Lab 11 :  Inheritance &amp; Overloading in C++<a class="headerlink" href="#lab-11-inheritance-overloading-in-c" title="Permalink to this headline">#</a></h1>
+<p>Welcome to the ninth session of  CSC 200 lab! This will familiarize you with <strong>Inheritance</strong> and <strong>Overloading</strong> in class as well as give you some experience in their proper use. <strong>Be sure to read and follow all instructions unless otherwise specified.</strong>  You’ll find the table of contents for this lab below.</p>
+<section id="part-1-introduction-to-inheritance-in-c">
+<h2>Part 1 : Introduction to Inheritance In C++<a class="headerlink" href="#part-1-introduction-to-inheritance-in-c" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">One of the most important concepts in object-oriented programming is that of inheritance. Inheritance allows us to define a class in terms of another class, which makes it easier to create and maintain an application. This also provides an opportunity to reuse the code functionality and fast implementation time.</p>
+<p class="sd-card-text">When creating a class, instead of writing completely new data members and member functions, the programmer can designate that the new class should inherit the members of an existing class. This existing class is called the <strong>base</strong> class, and the new class is referred to as the <strong>derived</strong> class.</p>
+<p class="sd-card-text">The idea of inheritance implements the <strong>is a</strong> relationship. For example, mammal IS-A animal, dog IS-A mammal hence dog IS-A animal as well and so on.</p>
+<p class="sd-card-text">The capability of a class to derive properties and characteristics from another class is called <strong>Inheritance</strong>. Inheritance is one of the most important feature of Object Oriented Programming.
+<strong>Sub Class:</strong> The class that inherits properties from another class is called Sub class or Derived Class.
+<strong>Super Class:</strong> The class whose properties are inherited by sub class is called Base Class or Super class.</p>
+</div>
+</div>
+<section id="why-and-when-to-use-inheritance">
+<h3>Why and when to use inheritance?<a class="headerlink" href="#why-and-when-to-use-inheritance" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">​Consider a group of vehicles. You need to create classes for <code class="docutils literal notranslate"><span class="pre">Bus</span></code>, <code class="docutils literal notranslate"><span class="pre">Car</span></code> and <code class="docutils literal notranslate"><span class="pre">Truck</span></code>. The methods <code class="docutils literal notranslate"><span class="pre">fuelAmount()</span></code>, <code class="docutils literal notranslate"><span class="pre">capacity()</span></code>, <code class="docutils literal notranslate"><span class="pre">applyBrakes()</span></code> will be same for all of the three classes. If we create these classes avoiding inheritance then we have to write all of these functions in each of the three classes as shown in below figure:</p>
+<br>
+<img alt="https://media.geeksforgeeks.org/wp-content/uploads/inheritance.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/inheritance.png" />
+<br>
+<p class="sd-card-text">You can clearly see that above process results in duplication of same code 3 times. This increases the chances of error and data redundancy. To avoid this type of situation, inheritance is used. If we create a class Vehicle and write these three functions in it and inherit the rest of the classes from the vehicle class, then we can simply avoid the duplication of data and increase re-usability. Look at the below diagram in which the three classes are inherited from vehicle class:</p>
+<br>
+<img alt="https://media.geeksforgeeks.org/wp-content/uploads/inheritance2.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/inheritance2.png" />
+<br>
+<p class="sd-card-text">Using inheritance, we have to write the functions only one time instead of three times as we have inherited rest of the three classes from base class (Vehicle).
+<strong>Implementing inheritance in C++</strong>: For creating a sub-class which is inherited from the base class we have to follow the below</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Syntax</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">subclass_name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">access_mode</span><span class="w"> </span><span class="n">base_class_name</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// body of subclass</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p class="sd-card-text">Here, <strong>subclass_name</strong> is the name of the sub class, <strong>access_mode</strong> is the mode in which you want to inherit this sub class for example: public, private etc. and <strong>base_class_name</strong> is the name of the base class from which you want to inherit the sub class.</p>
+<p class="sd-card-text"><strong>Note</strong>: A derived class doesn’t inherit <em><strong>access</strong></em> to private data members. However, it does inherit a full parent object, which contains any private members which that class declares.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to demonstrate implementation</span>
+<span class="c1">// of Inheritance</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+
+<span class="c1">// Base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Parent</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">id_p</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// Sub class inheriting from Base Class(Parent)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Parent</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">id_c</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Child</span><span class="w"> </span><span class="n">obj1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// An object of class child has all data members</span>
+<span class="w">    </span><span class="c1">// and member functions of class parent</span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">id_c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">obj1</span><span class="p">.</span><span class="n">id_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">91</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Child id is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj1</span><span class="p">.</span><span class="n">id_c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Parent id is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj1</span><span class="p">.</span><span class="n">id_p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Child id is <span class="m">7</span>
+Parent id is <span class="m">91</span>
+</pre></div>
+</div>
+<p class="sd-card-text">In the above program the <code class="docutils literal notranslate"><span class="pre">Child</span></code> class is publicly inherited from the <code class="docutils literal notranslate"><span class="pre">Parent</span></code> class so the public data members of the class <code class="docutils literal notranslate"><span class="pre">Parent</span></code> will also be inherited by the class <code class="docutils literal notranslate"><span class="pre">Child</span></code>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="modes-of-inheritance">
+<h3>Modes of Inheritance<a class="headerlink" href="#modes-of-inheritance" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt>Public mode</dt><dd><p class="sd-card-text">If we derive a sub class from a public base class. Then the public member of the base class will become public in the derived class and protected members of the base class will become protected in derived class.</p>
+</dd>
+<dt>Protected mode</dt><dd><p class="sd-card-text">If we derive a sub class from a Protected base class. Then both public member and protected members of the base class will become protected in derived class.</p>
+</dd>
+<dt>Private mode</dt><dd><p class="sd-card-text">If we derive a sub class from a Private base class. Then both public member and protected members of the base class will become Private in derived class.</p>
+</dd>
+</dl>
+<p class="sd-card-text"><em>Note: The private members in the base class cannot be directly accessed in the derived class, while protected members can be directly accessed. For example, Classes B, C and D all contain the variables x, y and z in below example. It is just question of access.</em></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ Implementation to show that a derived class</span>
+<span class="c1">// doesn’t inherit access to private data members.</span>
+<span class="c1">// However, it does inherit a full parent object.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// x is public</span>
+<span class="w">    </span><span class="c1">// y is protected</span>
+<span class="w">    </span><span class="c1">// z is not accessible from B</span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">protected</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// x is protected</span>
+<span class="w">    </span><span class="c1">// y is protected</span>
+<span class="w">    </span><span class="c1">// z is not accessible from C</span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="c1">// &#39;private&#39; is default for classes</span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// x is private</span>
+<span class="w">    </span><span class="c1">// y is private</span>
+<span class="w">    </span><span class="c1">// z is not accessible from D</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">The below table summarizes the above three modes and shows the access specifier of the members of base class in the sub class when derived in public, protected and private modes:</p>
+<br>
+<img alt="https://media.geeksforgeeks.org/wp-content/cdn-uploads/table-class.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/table-class.png" />
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="types-of-inheritance-in-c">
+<h3>Types of Inheritance in C++<a class="headerlink" href="#types-of-inheritance-in-c" title="Permalink to this headline">#</a></h3>
+<section id="single-inheritance">
+<h4>Single Inheritance<a class="headerlink" href="#single-inheritance" title="Permalink to this headline">#</a></h4>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">In single inheritance, a class is allowed to inherit from only one class. i.e. one sub class is inherited by one base class only.</p>
+<br>
+<img alt="https://media.geeksforgeeks.org/wp-content/uploads/single-inheritance.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/single-inheritance.png" />
+<br>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Syntax</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">subclass_name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">access_mode</span><span class="w"> </span><span class="n">base_class</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// body of subclass</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Example</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Example </span>
+<span class="c1">// C++ program to explain</span>
+<span class="c1">// Single inheritance</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">Vehicle</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is a Vehicle</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// sub class derived from a single base classes</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Creating object of sub class will</span>
+<span class="w">    </span><span class="c1">// invoke the constructor of base classes</span>
+<span class="w">    </span><span class="n">Car</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This is a Vehicle
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-inheritance">
+<h4>Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Permalink to this headline">#</a></h4>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Multiple Inheritance is a feature of C++ where a class can inherit from more than one classes. i.e one <strong>sub class</strong> is inherited from more than one <strong>base classes</strong>.</p>
+<br>
+<img alt="https://media.geeksforgeeks.org/wp-content/uploads/multiple-inheritance.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/multiple-inheritance.png" />
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Syntax</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">subclass_name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">access_mode</span><span class="w"> </span><span class="n">base_class1</span><span class="p">,</span><span class="w"> </span><span class="n">access_mode</span><span class="w"> </span><span class="n">base_class2</span><span class="p">,</span><span class="w"> </span><span class="p">....</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// body of subclass</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Here, the number of base classes will be separated by a comma (‘, ‘) and access mode for every base class must be specified.</p>
+<p class="sd-card-text"><strong>Example</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to explain</span>
+<span class="c1">// multiple inheritance</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// first base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">Vehicle</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is a Vehicle</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// second base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FourWheeler</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">FourWheeler</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is a 4 wheeler Vehicle</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// sub class derived from two base classes</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Vehicle</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FourWheeler</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Creating object of sub class will</span>
+<span class="w">    </span><span class="c1">// invoke the constructor of base classes.</span>
+<span class="w">    </span><span class="n">Car</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This is a Vehicle
+This is a <span class="m">4</span> wheeler Vehicle
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="multilevel-inheritance">
+<h3>Multilevel Inheritance<a class="headerlink" href="#multilevel-inheritance" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">In this type of inheritance, a derived class is created from another derived class.</p>
+<br>
+<img alt="https://media.geeksforgeeks.org/wp-content/uploads/multilevel-inheritance.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/multilevel-inheritance.png" />
+<br>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to implement</span>
+<span class="c1">// Multilevel Inheritance</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">Vehicle</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is a Vehicle</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// first sub_class derived from class vehicle</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">fourWheeler</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Vehicle</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">fourWheeler</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Objects with 4 wheels are vehicles</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="c1">// sub class derived from the derived base class fourWheeler</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">fourWheeler</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">Car</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Car has 4 Wheels</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Creating object of sub class will</span>
+<span class="w">    </span><span class="c1">// invoke the constructor of base classes.</span>
+<span class="w">    </span><span class="n">Car</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">Vehicle</span>
+<span class="n">Objects</span> <span class="k">with</span> <span class="mi">4</span> <span class="n">wheels</span> <span class="n">are</span> <span class="n">vehicles</span>
+<span class="n">Car</span> <span class="n">has</span> <span class="mi">4</span> <span class="n">Wheels</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="hierarchical-inheritance">
+<h4>Hierarchical Inheritance<a class="headerlink" href="#hierarchical-inheritance" title="Permalink to this headline">#</a></h4>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">In this type of inheritance, more than one sub class is inherited from a single base class. i.e. more than one derived class is created from a single base class.</p>
+<br>
+<img alt="https://media.geeksforgeeks.org/wp-content/uploads/hierarchical-inheritance.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/hierarchical-inheritance.png" />
+<br>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to implement</span>
+<span class="c1">// Hierarchical Inheritance</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">Vehicle</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is a Vehicle</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+
+<span class="c1">// first sub class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Vehicle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// second sub class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Bus</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Vehicle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w"> </span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Creating object of sub class will</span>
+<span class="w">    </span><span class="c1">// invoke the constructor of base class.</span>
+<span class="w">    </span><span class="n">Car</span><span class="w"> </span><span class="n">obj1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Bus</span><span class="w"> </span><span class="n">obj2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This is a Vehicle
+This is a Vehicle
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="hybrid-virtual-inheritance">
+<h3>Hybrid (Virtual) Inheritance<a class="headerlink" href="#hybrid-virtual-inheritance" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Hybrid Inheritance is implemented by combining more than one type of inheritance. For example: Combining Hierarchical inheritance and Multiple Inheritance.
+Below image shows the combination of hierarchical and multiple inheritance:</p>
+<br>
+<img alt="https://media.geeksforgeeks.org/wp-content/uploads/Hybrid-Inheritance.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/Hybrid-Inheritance.png" />
+<br>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program for Hybrid Inheritance</span>
+
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Vehicle</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is a Vehicle</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">//base class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Fare</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">Fare</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Fare of Vehicle</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// first sub class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Vehicle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// second sub class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Bus</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Vehicle</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Fare</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w"> </span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// main function</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Creating object of sub class will</span>
+<span class="w">    </span><span class="c1">// invoke the constructor of base class.</span>
+<span class="w">    </span><span class="n">Bus</span><span class="w"> </span><span class="n">obj2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This is a Vehicle
+Fare of Vehicle
+</pre></div>
+</div>
+</div>
+</div>
+<section id="a-special-case-of-hybrid-inheritance-multipath-inheritance">
+<h4>A special case of hybrid inheritance: Multipath inheritance<a class="headerlink" href="#a-special-case-of-hybrid-inheritance-multipath-inheritance" title="Permalink to this headline">#</a></h4>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">A derived class with two base classes and these two base classes have one common base class is called multipath inheritance. An ambiguity can arrise in this type of inheritance.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program demonstrating ambiguity in Multipath</span>
+<span class="c1">// Inheritance</span>
+
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ClassA</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="w">    </span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ClassB</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ClassA</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="w">    </span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ClassC</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ClassA</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="w">    </span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ClassD</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ClassB</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ClassC</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ClassD</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// obj.a = 10;     // Statement 1, Error</span>
+<span class="w">    </span><span class="c1">// obj.a = 100;     // Statement 2, Error</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">ClassB</span><span class="o">::</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// Statement 3</span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">ClassC</span><span class="o">::</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="c1">// Statement 4</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; a from ClassB : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">ClassB</span><span class="o">::</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> a from ClassC : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">ClassC</span><span class="o">::</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> b : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> c : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> d : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>a from ClassB : <span class="m">10</span>
+a from ClassC : <span class="m">100</span>
+b : <span class="m">20</span>
+c : <span class="m">30</span>
+d : <span class="m">40</span>
+</pre></div>
+</div>
+<p class="sd-card-text">In the above example, both Class B and Class C inherit Class A, they both have single copy of Class A. However Class D inherit both Class B and Class C, therefore Class D have two copies of Class A, one from Class B and another from Class C.
+If we need to access the data member a of Class A through the object of Class D, we must specify the path from which a will be accessed, whether it is from Class B or Class C, because the compiler can’t differentiate between two copies of Class A in Class D.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="ambiguity">
+<h3>Ambiguity<a class="headerlink" href="#ambiguity" title="Permalink to this headline">#</a></h3>
+<p>There are 2 ways to avoid this ambiguity:</p>
+<p><strong>Avoiding ambiguity using scope resolution operator:</strong>
+Using scope resolution operator we can manually specify the path from which data member a will be accessed, as shown in statement 3 and 4, in the above example.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">.</span><span class="n">ClassB</span><span class="o">::</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">  </span><span class="c1">// Statement 3</span>
+<span class="n">obj</span><span class="p">.</span><span class="n">ClassC</span><span class="o">::</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">  </span><span class="c1">// Statement 4</span>
+</pre></div>
+</div>
+<p><em>Note: Still, there are two copies of Class A in Class D.</em></p>
+<p><strong>Avoiding ambiguity using virtual base class:</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ClassA</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ClassB</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ClassA</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ClassC</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ClassA</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ClassD</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ClassB</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ClassC</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ClassD</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">  </span><span class="c1">// Statement 3</span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">  </span><span class="c1">// Statement 4</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> a : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> b : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> c : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> d : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>a : <span class="m">100</span>
+b : <span class="m">20</span>
+c : <span class="m">30</span>
+d : <span class="m">40</span>
+</pre></div>
+</div>
+<p>According to the above example, ClassD has only one copy of ClassA, therefore, statement 4 will overwrite the value of a, given at statement 3.</p>
+</section>
+</section>
+<section id="part-2-introduction-to-overloading-in-c">
+<h2>Part 2 : Introduction to Overloading In C++<a class="headerlink" href="#part-2-introduction-to-overloading-in-c" title="Permalink to this headline">#</a></h2>
+<p>C++ allows you to specify more than one definition for a <strong>function</strong> name or an <strong>operator</strong> in the same scope, which is called <strong>function overloading</strong> and <strong>operator overloading</strong> respectively.</p>
+<p>An overloaded declaration is a declaration that is declared with the same name as a previously declared declaration in the same scope, except that both declarations have different arguments and obviously different definition (implementation).</p>
+<p>When you call an overloaded <strong>function</strong> or <strong>operator</strong>, the compiler determines the most appropriate definition to use, by comparing the argument types you have used to call the function or operator with the parameter types specified in the definitions. The process of selecting the most appropriate overloaded function or operator is called <strong>overload resolution</strong>.</p>
+<section id="function-overloading-in-c">
+<h3>Function Overloading in C++<a class="headerlink" href="#function-overloading-in-c" title="Permalink to this headline">#</a></h3>
+<p>You can have multiple definitions for the same function name in the same scope. The definition of the function must differ from each other by the types and/or the number of arguments in the argument list. You cannot overload function declarations that differ only by return type.</p>
+<p>Following is the example where same function <strong>print()</strong> is being used to print different data types :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="w"> </span>
+<span class="k">class</span><span class="w"> </span><span class="nc">printData</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Printing int: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="kt">double</span><span class="w">  </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Printing float: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Printing character: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">printData</span><span class="w"> </span><span class="n">pd</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="c1">// Call print to print integer</span>
+<span class="w">   </span><span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// Call print to print float</span>
+<span class="w">   </span><span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mf">500.263</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// Call print to print character</span>
+<span class="w">   </span><span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello C++&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Printing int: <span class="m">5</span>
+Printing float: <span class="m">500</span>.263
+Printing character: Hello C++
+</pre></div>
+</div>
+</section>
+<section id="operators-overloading-in-c">
+<h3>Operators Overloading in C++<a class="headerlink" href="#operators-overloading-in-c" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">You can redefine or overload most of the built-in operators available in C++. Thus, a programmer can use operators with user-defined types as well.</p>
+<p class="sd-card-text">Overloaded operators are functions with special names: the keyword <code class="docutils literal notranslate"><span class="pre">operator</span></code> followed by the symbol for the operator being defined. Like any other function, an overloaded operator has a return type and a parameter list.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Box</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Box</span><span class="o">&amp;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">declares the addition operator that can be used to <strong>add</strong> two Box objects and returns final Box object. Most overloaded operators may be defined as ordinary non-member functions or as class member functions. In case we define above function as non-member function of a class then we would have to pass two arguments for each operand as follows :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Box</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Box</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Box</span><span class="o">&amp;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Following is the example to show the concept of operator over loading using a member function. Here an object is passed as an argument whose properties will be accessed using this object, the object which will call this operator can be accessed using <strong>this</strong> operator as explained below :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Box</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">getVolume</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">breadth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">setLength</span><span class="p">(</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">setBreadth</span><span class="p">(</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">bre</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">breadth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bre</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="n">setHeight</span><span class="p">(</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">hei</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hei</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// Overload + operator to add two Box objects.</span>
+<span class="w">      </span><span class="n">Box</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Box</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">Box</span><span class="w"> </span><span class="n">box</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="n">box</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="n">box</span><span class="p">.</span><span class="n">breadth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">breadth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">breadth</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="n">box</span><span class="p">.</span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">height</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">height</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="n">box</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span>
+<span class="w">   </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w">      </span><span class="c1">// Length of a box</span>
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">breadth</span><span class="p">;</span><span class="w">     </span><span class="c1">// Breadth of a box</span>
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w">      </span><span class="c1">// Height of a box</span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// Main function for the program</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">Box</span><span class="w"> </span><span class="n">Box1</span><span class="p">;</span><span class="w">                </span><span class="c1">// Declare Box1 of type Box</span>
+<span class="w">   </span><span class="n">Box</span><span class="w"> </span><span class="n">Box2</span><span class="p">;</span><span class="w">                </span><span class="c1">// Declare Box2 of type Box</span>
+<span class="w">   </span><span class="n">Box</span><span class="w"> </span><span class="n">Box3</span><span class="p">;</span><span class="w">                </span><span class="c1">// Declare Box3 of type Box</span>
+<span class="w">   </span><span class="kt">double</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w">     </span><span class="c1">// Store the volume of a box here</span>
+<span class="w"> </span>
+<span class="w">   </span><span class="c1">// box 1 specification</span>
+<span class="w">   </span><span class="n">Box1</span><span class="p">.</span><span class="n">setLength</span><span class="p">(</span><span class="mf">6.0</span><span class="p">);</span><span class="w"> </span>
+<span class="w">   </span><span class="n">Box1</span><span class="p">.</span><span class="n">setBreadth</span><span class="p">(</span><span class="mf">7.0</span><span class="p">);</span><span class="w"> </span>
+<span class="w">   </span><span class="n">Box1</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="c1">// box 2 specification</span>
+<span class="w">   </span><span class="n">Box2</span><span class="p">.</span><span class="n">setLength</span><span class="p">(</span><span class="mf">12.0</span><span class="p">);</span><span class="w"> </span>
+<span class="w">   </span><span class="n">Box2</span><span class="p">.</span><span class="n">setBreadth</span><span class="p">(</span><span class="mf">13.0</span><span class="p">);</span><span class="w"> </span>
+<span class="w">   </span><span class="n">Box2</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mf">10.0</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="c1">// volume of box 1</span>
+<span class="w">   </span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Box1</span><span class="p">.</span><span class="n">getVolume</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Volume of Box1 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="c1">// volume of box 2</span>
+<span class="w">   </span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Box2</span><span class="p">.</span><span class="n">getVolume</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Volume of Box2 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">   </span><span class="c1">// Add two object as follows:</span>
+<span class="w">   </span><span class="n">Box3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Box1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Box2</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">   </span><span class="c1">// volume of box 3</span>
+<span class="w">   </span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Box3</span><span class="p">.</span><span class="n">getVolume</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Volume of Box3 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Volume of Box1 : <span class="m">210</span>
+Volume of Box2 : <span class="m">1560</span>
+Volume of Box3 : <span class="m">5400</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="overloadable-non-overloadable-operators">
+<h3>Overloadable/Non-overloadable Operators<a class="headerlink" href="#overloadable-non-overloadable-operators" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Following is the list of operators which <strong>can</strong> be overloaded</div>
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(*\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(/\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\%\)</span></p></td>
+<td><p class="sd-card-text">^</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\&amp;\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\|\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\sim\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(!\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(,\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(=\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(&lt;\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(&gt;\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(&lt;=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(&gt;=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(++\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(--\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(&lt;&lt;\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(&gt;&gt;\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(==\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(!=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\&amp;\&amp;\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\|\|\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(+=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(-=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(/=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\%=\)</span></p></td>
+<td><p class="sd-card-text">^=</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\&amp;=\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\|=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(*=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(&lt;&lt;=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(&gt;&gt;=\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\([\ ]\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\((\ )\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(-&gt;\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(-&gt;*\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(new\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(new [\ ]\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(delete\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(delete [\ ]\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Following is the list of operators, which <strong>can not</strong> be overloaded</div>
+<table class="table">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(::\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(.*\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(.\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(?\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-3-exercises">
+<h2>Part 3 : Exercises<a class="headerlink" href="#part-3-exercises" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+You are being given a skeleton to a text-based RPG. Your tasks are as follows:</div>
+<ul class="simple">
+<li><p class="sd-card-text">Read and understand the code</p></li>
+<li><p class="sd-card-text">Generate a UML diagram explaining how all of the classes work toegether</p></li>
+<li><p class="sd-card-text">Propose a new feature and a design for how you would implement it. Here are some ideas:</p>
+<ul>
+<li><p class="sd-card-text">Player interaction in the combat loop</p></li>
+<li><p class="sd-card-text">Player &amp; Enemy classes</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Implement the proposed feature</p></li>
+</ul>
+<dl class="simple myst">
+<dt>Requirements</dt><dd><p class="sd-card-text">UML Diagram</p>
+</dd>
+<dd><p class="sd-card-text">Proposed feature implemented</p>
+</dd>
+</dl>
+</div>
+</div>
+<p><em>Note: You must demo to a TA in order to receive credit!</em></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/lab-11"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../lectures/w11.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 11</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="game.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 11 : Game files</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

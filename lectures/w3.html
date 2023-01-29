@@ -1,0 +1,989 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Week 3 &#8212; CSC 200&lt;br&gt;Problem Solving for Science &amp; Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 3 : Strings, Operators, &amp; Expressions" href="../labs/lab-03/readme.html" />
+    <link rel="prev" title="Lab 2 : IDE Setup &amp; Introduction" href="../labs/lab-02/readme.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 200<br>Problem Solving for Science & Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Start Here
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures &amp; Labs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w1.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-01/readme.html">
+     Lab 1 : Introduction &amp; Expectations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w2.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-02/readme.html">
+     Lab 2 :  IDE Setup &amp; Introduction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Week 3
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-03/readme.html">
+     Lab 3 :  Strings, Operators, &amp; Expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w4.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-04/readme.html">
+     Lab 4 :  Decision making
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w5.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-05/readme.html">
+     Lab 5 :  Loops in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w6.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-06/readme.html">
+     Lab 6 :  Functions in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w7.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-07/readme.html">
+     Lab 7 :  Array and Vector in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="w8.html">
+   Week 8
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w9.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-09/readme.html">
+     Lab 9 :  File Input/ Output in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-10/readme.html">
+     Lab 10 :
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Class
+      </span>
+     </code>
+     Structure &amp; Diagraming in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-11/readme.html">
+     Lab 11 :  Inheritance &amp; Overloading in C++
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-11/game.html">
+     Lab 11 : Game files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="w12.html">
+   Week 12
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/lab-12/readme.html">
+     Lab 12 : Pointers in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="w13.html">
+   Week 13
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="w14.html">
+   Week 14
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/lectures/w3.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading">
+   Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-practices">
+   Programming Practices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expressions">
+   Expressions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interactivity">
+   Interactivity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#knowledge-check">
+   Knowledge Check
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Week 3</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading">
+   Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-practices">
+   Programming Practices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expressions">
+   Expressions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interactivity">
+   Interactivity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#knowledge-check">
+   Knowledge Check
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="week-3">
+<h1>Week 3<a class="headerlink" href="#week-3" title="Permalink to this headline">#</a></h1>
+<img alt="https://miro.medium.com/proxy/1*88Si3_5QAE_T-LZOTzQgeg.png" class="align-center" src="https://miro.medium.com/proxy/1*88Si3_5QAE_T-LZOTzQgeg.png" />
+<section id="reading">
+<h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://github.com/JiaRuiShao/CPP/blob/master/Starting%20Out%20with%20C%2B%2B%20from%20Control%20Structures%20to%20Objects%208%20Tony%20Gaddis.pdf">Starting Out with C++ from Control Structures to Objects 8 Tony Gaddis</a></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt>Chapter[s]</dt><dd><p class="sd-card-text">3.2 - 3.7</p>
+</dd>
+<dd><p class="sd-card-text">3.8 - 3.11</p>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="programming-practices">
+<h2>Programming Practices<a class="headerlink" href="#programming-practices" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Problem-Solving Recipe</div>
+<ol class="simple">
+<li><p class="sd-card-text">What is it that I’m trying to do?</p>
+<ul class="simple">
+<li><p class="sd-card-text">What’s the problem I am trying to solve?</p></li>
+<li><p class="sd-card-text">What data, if any, will I need to receive?</p></li>
+<li><p class="sd-card-text">What data, if any, will I need to return?</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Create a contract:</p>
+<ul class="simple">
+<li><p class="sd-card-text">What are your inputs (parameters)?</p></li>
+<li><p class="sd-card-text">What are your outputs (what you return)?</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">How will I know if it’s working?</p>
+<ul class="simple">
+<li><p class="sd-card-text">Write test cases for valid input</p></li>
+<li><p class="sd-card-text">Write test cases for invalid input (error-checking)</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Solve the problem:</p>
+<ul class="simple">
+<li><p class="sd-card-text">What is the list of steps you need to do to solve the problem (algorithm)?</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Write clean and elegant code that:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Follows your contract</p></li>
+<li><p class="sd-card-text">Does what you want it to do</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Debug as necessary:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Start by checking your algorithm– does it solve the problem?</p></li>
+<li><p class="sd-card-text">Check that your code follows your algorithm– does the code do what you
+think it does?</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Memory Diagrams - A Tool For Code Tracing</div>
+<p class="sd-card-text">Memory diagrams (as described in an <a class="reference external" href="http://students.cs.uri.edu/~forensics/courses/CSC106/MemoryDiagrams.pdf">article by Dragon and Dickson</a> are used to help trace code. They are typically hand-written diagrams that reflect the program’s memory over time. Memory diagrams are drawn as “inverted Ts” with two columns: the program’s identifier for the memory (also called <code class="docutils literal notranslate"><span class="pre">name</span></code> ), and the value in the memory (also called <code class="docutils literal notranslate"><span class="pre">stack</span></code> ). Examples are provided below.</p>
+<p class="sd-card-text"><strong>Variables</strong></p>
+<p class="sd-card-text">As you trace the code from top to bottom, you add memory that the program allocates bottom up to the memory diagram. Consider this example in Javascript where the keyword <code class="docutils literal notranslate"><span class="pre">var</span></code> allocates a new variable and line numbers have been added as comments:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">total</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+<span class="n">println</span><span class="p">(</span><span class="n">total</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output to console</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">16</span>
+</pre></div>
+</div>
+<p class="sd-card-text">When tracing this code, you go from top to bottom.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="8fe0e12a-21d8-4a6c-8317-ad7ec17cf834" name="d633c1a6-c4c6-482b-a123-094e32443ae1" type="radio">
+</input><label class="sd-tab-label" for="8fe0e12a-21d8-4a6c-8317-ad7ec17cf834">
+5</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">The memory diagram for line 1 is:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text">x</p></td>
+<td><p class="sd-card-text">5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">identifier</p></td>
+<td><p class="sd-card-text">value</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="sd-card-text">Note that you add <code class="docutils literal notranslate"><span class="pre">x</span></code> in the diagram because of the <code class="docutils literal notranslate"><span class="pre">int</span></code> data type denoting a new variable.</p>
+</div>
+<input id="68c3445d-d57b-42b3-8c8d-657cbfc053d3" name="d633c1a6-c4c6-482b-a123-094e32443ae1" type="radio">
+</input><label class="sd-tab-label" for="68c3445d-d57b-42b3-8c8d-657cbfc053d3">
+7</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Next trace line 2 by adding identifier <code class="docutils literal notranslate"><span class="pre">y</span></code> and its value. Do this above <code class="docutils literal notranslate"><span class="pre">x</span></code> and its value:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text">y</p></td>
+<td><p class="sd-card-text">7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">x</p></td>
+<td><p class="sd-card-text">5</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">identifier</p></td>
+<td><p class="sd-card-text">value</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<input id="ce1e0e9f-e202-423d-9b2b-32b0c9c9c42c" name="d633c1a6-c4c6-482b-a123-094e32443ae1" type="radio">
+</input><label class="sd-tab-label" for="ce1e0e9f-e202-423d-9b2b-32b0c9c9c42c">
+9</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Next trace line 3. Since there is no new variable, there is no new memory, so you overwrite the value
+of <code class="docutils literal notranslate"><span class="pre">x</span></code>. You do this by crossing out the old value of 5 and writing the new value of 9 so that we can
+see the history of <code class="docutils literal notranslate"><span class="pre">x</span></code>’s values.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text">y</p></td>
+<td><p class="sd-card-text">7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">x</p></td>
+<td><p class="sd-card-text">9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">identifier</p></td>
+<td><p class="sd-card-text">value</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<input id="ce730568-ffed-42d9-9cf1-db40145645c2" name="d633c1a6-c4c6-482b-a123-094e32443ae1" type="radio">
+</input><label class="sd-tab-label" for="ce730568-ffed-42d9-9cf1-db40145645c2">
+total</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Tracing line 5 prints to the console, which does not affect memory, so you don’t show it in the memory diagram.</p>
+<p class="sd-card-text">When tracing code, to find the current value of a variable, read down the memory diagram from top to bottom and use the non-crossed out value for the variable.</p>
+<p class="sd-card-text">If the example program had put a var in front of the <code class="docutils literal notranslate"><span class="pre">x</span></code> on line 3, then the program would have allocated another memory cell and called it <code class="docutils literal notranslate"><span class="pre">x</span></code>. This is show in this memory diagram</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">total</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text">total</p></td>
+<td><p class="sd-card-text">16</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">x</p></td>
+<td><p class="sd-card-text">9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">y</p></td>
+<td><p class="sd-card-text">7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">x</p></td>
+<td><p class="sd-card-text">5</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">identifier</p></td>
+<td><p class="sd-card-text">value</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="sd-card-text">This program also returns 16 to the console. Note that <code class="docutils literal notranslate"><span class="pre">x</span></code> appears twice in the memory diagram. Since you read the diagram from top to bottom, the <code class="docutils literal notranslate"><span class="pre">x</span></code> whose value is 9 is used by the program.
+The <code class="docutils literal notranslate"><span class="pre">x</span></code> whose value is 5 is wasted memory (sometimes called garbage) - the program will never access it again</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+PythonTutor</div>
+<p class="sd-card-text">Use the <code class="docutils literal notranslate"><span class="pre">prev</span></code> and <code class="docutils literal notranslate"><span class="pre">next</span></code> buttons below to cycle through the example from above live…</p>
+<iframe width="600" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=int%20main%28%29%20%7B%0A%20%20int%20x%20%3D%205%3B%0A%20%20int%20y%20%3D%207%3B%0A%20%20x%20%3D%209%3B%0A%20%20int%20total%20%3D%20x%20%2B%20y%3B%0A%20%20return%20total%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=cpp_g%2B%2B9.3.0&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><a class="reference external" href="https://brightspace.uri.edu/d2l/le/content/217558/viewContent/1721429/View">Drawing Memory Diagrams</a></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="expressions">
+<h2>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><a class="reference external" href="https://youtu.be/RKNgEgm_DP8">Watch: C++ Arithmetic Operators</a><br />
+<a class="reference external" href="https://youtu.be/kwkZpSc6g7Q">Watch: C++ Increment &amp; Decrement Operators</a><br />
+<a class="reference external" href="https://youtu.be/fy4hJWctkNc">Watch: C++ Modulus, Short-Hand Operators</a><br />
+<a class="reference external" href="https://youtu.be/oa_fWKQACAo">Watch: Casting in C++</a><br />
+<a class="reference external" href="https://youtu.be/shb-h_o42VY">Watch: Overflow &amp; Underflow in C++</a><br />
+<a class="reference external" href="https://youtu.be/SOoJcrR4Ijo">Watch: Ethical Hacking: Buffer Overflow Basics</a></p>
+</div>
+</div>
+</section>
+<section id="interactivity">
+<h2>Interactivity<a class="headerlink" href="#interactivity" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><a class="reference external" href="https://youtu.be/daBz8vFaCKo">Watch: Formatting Output</a><br />
+<a class="reference external" href="https://youtu.be/C_3xHf99Ku0">Formatting Output - setw</a><br />
+<a class="reference external" href="https://youtu.be/__o1jE0JSiE">C++ Extraction Operator, getline and cin.ignore()</a><br />
+<a class="reference external" href="https://www.youtube.com/playlist?list=PLzn-iGwKeXiaycjsJOlGtA84p9sXnEXvN">Playlist: Random Numbers in C++</a></p>
+</div>
+</div>
+</section>
+<section id="knowledge-check">
+<h2>Knowledge Check<a class="headerlink" href="#knowledge-check" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">What’s the purpose of the Problem Solving recipe?</p></li>
+<li><p class="sd-card-text">What is the purpose of memory diagrams?</p></li>
+<li><p class="sd-card-text">How do memory diagrams differentiate variable creation/instantiation vs variable updating?</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">What is an expression?</p></li>
+<li><p class="sd-card-text">What purpose do operators and operands serve?</p></li>
+<li><p class="sd-card-text">What’s the difference between a unary and a binary operator?</p></li>
+<li><p class="sd-card-text">What’s the purpose of the C++ library?</p></li>
+<li><p class="sd-card-text">What’s purpose does implicit type conversion/type coercion serve?</p></li>
+<li><p class="sd-card-text">When and why should type casting be used?</p></li>
+<li><p class="sd-card-text">Why can overflows and underflows be dangerous?</p></li>
+<li><p class="sd-card-text">When should the const keyword be use?</p></li>
+<li><p class="sd-card-text">When should multiple assignment be used?</p></li>
+<li><p class="sd-card-text">What are compound operators and what purpose do they serve?</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">What’s the purpose of formatting?</p></li>
+<li><p class="sd-card-text">What are some common stream manipulators?</p></li>
+<li><p class="sd-card-text">How do stream manipulators differ from escape sequences?</p></li>
+<li><p class="sd-card-text">How should user’s input be Read: if want:</p>
+<ul>
+<li><p class="sd-card-text">A word</p></li>
+<li><p class="sd-card-text">A sentence</p></li>
+<li><p class="sd-card-text">A letter</p></li>
+<li><p class="sd-card-text">A single whitespace character</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">What is a buffer overrun and how should it be avoided?</p></li>
+<li><p class="sd-card-text">What is the purpose of a seed?</p></li>
+</ul>
+</div>
+</div>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../labs/lab-02/readme.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lab 2 :  IDE Setup &amp; Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../labs/lab-03/readme.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 3 :  Strings, Operators, &amp; Expressions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
