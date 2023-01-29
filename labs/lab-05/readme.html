@@ -1,0 +1,1344 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 5 : Loops in C++ &#8212; CSC 200&lt;br&gt;Problem Solving for Science &amp; Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Week 6" href="../../lectures/w6.html" />
+    <link rel="prev" title="Week 5" href="../../lectures/w5.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 200<br>Problem Solving for Science & Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Start Here
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures &amp; Labs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w1.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-01/readme.html">
+     Lab 1 : Introduction &amp; Expectations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w2.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-02/readme.html">
+     Lab 2 :  IDE Setup &amp; Introduction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w3.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-03/readme.html">
+     Lab 3 :  Strings, Operators, &amp; Expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w4.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-04/readme.html">
+     Lab 4 :  Decision making
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../lectures/w5.html">
+   Week 5
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lab 5 :  Loops in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w6.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-06/readme.html">
+     Lab 6 :  Functions in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w7.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-07/readme.html">
+     Lab 7 :  Array and Vector in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/w8.html">
+   Week 8
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w9.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-09/readme.html">
+     Lab 9 :  File Input/ Output in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-10/readme.html">
+     Lab 10 :
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Class
+      </span>
+     </code>
+     Structure &amp; Diagraming in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-11/readme.html">
+     Lab 11 :  Inheritance &amp; Overloading in C++
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-11/game.html">
+     Lab 11 : Game files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/w12.html">
+   Week 12
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab-12/readme.html">
+     Lab 12 : Pointers in C++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/w13.html">
+   Week 13
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/w14.html">
+   Week 14
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/labs/lab-05/readme.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-introduction">
+   Part 1. Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterative-method">
+     Iterative Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-loops">
+     Using Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-loops-in-c">
+   Part 2. Loops in C++
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-loop-in-c">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       for
+      </span>
+     </code>
+     Loop in c++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-loop-in-c">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       while
+      </span>
+     </code>
+     loop in c++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#do-while-loop-in-c">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       do
+      </span>
+      <span class="pre">
+       while
+      </span>
+     </code>
+     loop in c++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-about-an-infinite-loop">
+     <strong>
+      What about an Infinite Loop?
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-3-nested-loops-in-c">
+   Part 3. Nested Loops in C++
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-4-loops-control-statement">
+   Part 4. Loops Control Statement
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#break">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       break
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continue">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       continue
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-5-exercises">
+   Part 5. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lab 5 :  Loops in C++</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-introduction">
+   Part 1. Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterative-method">
+     Iterative Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-loops">
+     Using Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-loops-in-c">
+   Part 2. Loops in C++
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-loop-in-c">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       for
+      </span>
+     </code>
+     Loop in c++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-loop-in-c">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       while
+      </span>
+     </code>
+     loop in c++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#do-while-loop-in-c">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       do
+      </span>
+      <span class="pre">
+       while
+      </span>
+     </code>
+     loop in c++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-about-an-infinite-loop">
+     <strong>
+      What about an Infinite Loop?
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-3-nested-loops-in-c">
+   Part 3. Nested Loops in C++
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-4-loops-control-statement">
+   Part 4. Loops Control Statement
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#break">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       break
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continue">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       continue
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-5-exercises">
+   Part 5. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-5-loops-in-c">
+<h1>Lab 5 :  Loops in C++<a class="headerlink" href="#lab-5-loops-in-c" title="Permalink to this headline">#</a></h1>
+<p>Welcome to the fourth CSC 200 lab! This will familiarize you with using Loops, as well as give you some experience in their proper use. <strong>Be sure to read and follow all instructions unless otherwise specified.</strong>  You’ll find the table of contents for this lab below.</p>
+<section id="part-1-introduction">
+<h2>Part 1. Introduction<a class="headerlink" href="#part-1-introduction" title="Permalink to this headline">#</a></h2>
+<p>Loops in programming come into use when we need to repeatedly execute a block of statements. For example: Suppose we want to print “Hello World” 10 times. This can be done in two ways as shown below:</p>
+<section id="iterative-method">
+<h3>Iterative Method<a class="headerlink" href="#iterative-method" title="Permalink to this headline">#</a></h3>
+<p>An iterative method to do this is to write the cout statement 10 times</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="using-loops">
+<h3>Using Loops<a class="headerlink" href="#using-loops" title="Permalink to this headline">#</a></h3>
+<dl class="simple myst">
+<dt>In loop, the statement needs to be written only once and the loop will be executed 10 times as shown below. In computer programming, a <strong>loop</strong> is a sequence of instructions that is <strong>repeated</strong> until a certain <strong>condition</strong> is reached.</dt><dd><p>An operation is done, such as getting an item of data and changing it, and then some condition is checked such as whether a counter has reached a prescribed number.</p>
+</dd>
+<dd><p><strong>Counter not Reached:</strong> If the counter has not reached the desired number, the next instruction in the sequence returns to the first instruction in the sequence and repeat it.</p>
+</dd>
+<dd><p><strong>Counter reached:</strong> If the condition has been reached, the next instruction “falls through” to the next sequential instruction or branches outside the loop.</p>
+</dd>
+</dl>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Common loop types</div>
+<img alt="../../_images/Loops_in_cpp.png" class="align-center" src="../../_images/Loops_in_cpp.png" />
+<dl class="simple myst">
+<dt>Entry Controlled</dt><dd><p class="sd-card-text">In this type of loops the test condition is tested before entering the loop body.<code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops are entry controlled loops.</p>
+</dd>
+<dt>Exit Controlled Loops</dt><dd><p class="sd-card-text">In this type of loops the test condition is tested or evaluated at the end of loop body. Therefore, the loop body will execute atleast once, irrespective of whether the test condition is true or false. <code class="docutils literal notranslate"><span class="pre">do</span></code>–<code class="docutils literal notranslate"><span class="pre">while</span></code> loop is an exit controlled loop.</p>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-loops-in-c">
+<h2>Part 2. Loops in C++<a class="headerlink" href="#part-2-loops-in-c" title="Permalink to this headline">#</a></h2>
+<section id="for-loop-in-c">
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> Loop in c++<a class="headerlink" href="#for-loop-in-c" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">A for loop is a repetition control structure which allows us to write a loop that is executed a specific number of times. The loop enables us to perform n number of steps together in one line.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="2d17215a-a2e0-4b64-9887-863449bfeff6" name="20a8bfa1-8966-4f52-b788-8ffd93fa0bf5" type="radio">
+</input><label class="sd-tab-label" for="2d17215a-a2e0-4b64-9887-863449bfeff6">
+syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">initialization</span><span class="w"> </span><span class="n">expr</span><span class="p">;</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">expr</span><span class="p">;</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">expr</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w">    </span>
+<span class="w">      </span><span class="c1">// body of the loop(statements we want to execute)</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">In for loop, a loop variable is used to control the loop. First initialize this loop variable to some value, then check whether this variable is less than or greater than counter value. If statement is true, then loop body is executed and loop variable gets updated . Steps are repeated till exit condition comes.</p>
+<dl class="simple myst">
+<dt>Initialization Expression</dt><dd><p class="sd-card-text">In this expression we have to initialize the loop counter to some value.
+example: <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">1;</span></code></p>
+</dd>
+<dt>Test Expression</dt><dd><p class="sd-card-text">In this expression we have to test the condition. If the condition evaluates to true then we will execute the body of loop and go to update expression otherwise we will exit from the for loop.
+example: <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;=</span> <span class="pre">10;</span></code></p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>Update Expression</strong>: After executing loop body this expression increments/decrements the loop variable by some value.
+example: <code class="docutils literal notranslate"><span class="pre">i++</span></code>;</p></li>
+</ul>
+</div>
+<input id="b7e36a9a-b259-494e-982d-337d86bc9c96" name="20a8bfa1-8966-4f52-b788-8ffd93fa0bf5" type="radio">
+</input><label class="sd-tab-label" for="b7e36a9a-b259-494e-982d-337d86bc9c96">
+example</label><div class="sd-tab-content docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="w">   </span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="350933c9-2763-4509-9c15-ccf60a5f93e8" name="20a8bfa1-8966-4f52-b788-8ffd93fa0bf5" type="radio">
+</input><label class="sd-tab-label" for="350933c9-2763-4509-9c15-ccf60a5f93e8">
+output</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="while-loop-in-c">
+<h3><code class="docutils literal notranslate"><span class="pre">while</span></code> loop in c++<a class="headerlink" href="#while-loop-in-c" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">While studying <code class="docutils literal notranslate"><span class="pre">for</span></code> loops we have seen that the number of iterations is known beforehand, i.e. the number of times the loop body is needed to be executed is known to us. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops are used in situations where we do not know the exact number of iterations of loop beforehand. The loop execution is terminated on the basis of test condition.</p>
+<p class="sd-card-text">We have already stated that a loop is mainly consisted of three statements – initialization expression, test expression, update expression. The syntax of the three loops – <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> mainly differs on the placement of these three statements.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="c96ec6e3-1de9-4c95-afab-00277a20fe4f" name="618e5097-f028-460c-a649-c05293165d0f" type="radio">
+</input><label class="sd-tab-label" for="c96ec6e3-1de9-4c95-afab-00277a20fe4f">
+syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">initialization</span><span class="w"> </span><span class="n">expression</span><span class="p">;</span><span class="w"></span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">test_expression</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="c1">// statements</span>
+<span class="w">   </span>
+<span class="w">   </span><span class="n">update_expression</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="b510ff52-91a4-436a-9513-97063f1323c1" name="618e5097-f028-460c-a649-c05293165d0f" type="radio">
+</input><label class="sd-tab-label" for="b510ff52-91a4-436a-9513-97063f1323c1">
+example</label><div class="sd-tab-content docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// initialization expression</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">      </span><span class="c1">// test expression</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">         </span><span class="c1">// update expression</span>
+<span class="w">         </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="5c399eba-9e3a-4e64-a02a-c51593612a52" name="618e5097-f028-460c-a649-c05293165d0f" type="radio">
+</input><label class="sd-tab-label" for="5c399eba-9e3a-4e64-a02a-c51593612a52">
+output</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="do-while-loop-in-c">
+<h3><code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loop in c++<a class="headerlink" href="#do-while-loop-in-c" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">In <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loops also the loop execution is terminated on the basis of test condition. The main difference between <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loop and <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is in <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loop the condition is tested at the end of loop body, i.e <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loop is exit controlled whereas the other two loops are entry controlled loops.</p>
+<p class="sd-card-text"><em>Note: In <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loop the loop body will execute at least once irrespective of test condition.</em></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="201fa718-fc5d-4200-9e24-04d45453796d" name="31edb0ed-3304-46d6-a252-25b50657d596" type="radio">
+</input><label class="sd-tab-label" for="201fa718-fc5d-4200-9e24-04d45453796d">
+syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">initialization</span><span class="w"> </span><span class="n">expression</span><span class="p">;</span><span class="w"></span>
+<span class="k">do</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="c1">// statements</span>
+
+<span class="w">   </span><span class="n">update_expression</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">test_expression</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><em>Note: Notice the semi – colon(“;”) in the end of loop.</em></p>
+</div>
+<input id="147a90c6-4942-4ef2-8935-bb02ed8364da" name="31edb0ed-3304-46d6-a252-25b50657d596" type="radio">
+</input><label class="sd-tab-label" for="147a90c6-4942-4ef2-8935-bb02ed8364da">
+example</label><div class="sd-tab-content docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Initialization expression</span>
+
+<span class="w">   </span><span class="k">do</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// loop body</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1">// update expression</span>
+<span class="w">      </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// test expression</span>
+
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="7d864226-3392-445f-9498-390fef43fe65" name="31edb0ed-3304-46d6-a252-25b50657d596" type="radio">
+</input><label class="sd-tab-label" for="7d864226-3392-445f-9498-390fef43fe65">
+output</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello World
+</pre></div>
+</div>
+<p class="sd-card-text">In the above program the test condition (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">1</span></code>) evaluates to false. But still as the loop is exit – controlled the loop body will execute once.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-about-an-infinite-loop">
+<h3><strong>What about an Infinite Loop?</strong><a class="headerlink" href="#what-about-an-infinite-loop" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">An infinite loop (sometimes called an endless loop ) is a piece of coding that lacks a functional exit so that it repeats indefinitely. An infinite loop occurs when a condition always evaluates to true. Usually, this is an <strong>error</strong>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+example</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Uncomment the sections to see the output</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">   </span><span class="c1">// This is an infinite for loop as the condition</span>
+<span class="w">   </span><span class="c1">// expression is blank</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This loop will run forever.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">   </span><span class="c1">// This is an infinite for loop as the condition</span>
+<span class="w">   </span><span class="c1">// given in while loop will keep repeating infinitely</span>
+<span class="w">   </span><span class="cm">/*</span>
+<span class="cm">   while (i != 0)</span>
+<span class="cm">   {</span>
+<span class="cm">      i-- ;</span>
+<span class="cm">      cout &lt;&lt; &quot;This loop will run forever.\n&quot;;</span>
+<span class="cm">   }</span>
+<span class="cm">   */</span><span class="w"></span>
+
+<span class="w">   </span><span class="c1">// This is an infinite for loop as the condition</span>
+<span class="w">   </span><span class="c1">// given in while loop is &quot;true&quot;</span>
+<span class="w">   </span><span class="cm">/*</span>
+<span class="cm">   while (true)</span>
+<span class="cm">   {</span>
+<span class="cm">      cout &lt;&lt; &quot;This loop will run forever.\n&quot;;</span>
+<span class="cm">   }</span>
+<span class="cm">   */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This loop will run forever.
+This loop will run forever.
+................... 
+</pre></div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Important Points</div>
+<ul class="simple">
+<li><p class="sd-card-text">Use <strong>for loop</strong> when number of iterations is known beforehand, i.e. the number of times the loop body is needed to be executed is known.</p></li>
+<li><p class="sd-card-text">Use <strong>while loops</strong> where exact number of iterations is not known but the loop termination condition is known.</p></li>
+<li><p class="sd-card-text">Use <strong>do while loop</strong> if the code needs to be executed at least once like in Menu driven programs</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-3-nested-loops-in-c">
+<h2>Part 3. Nested Loops in C++<a class="headerlink" href="#part-3-nested-loops-in-c" title="Permalink to this headline">#</a></h2>
+<p><strong>Nested loop</strong> means a <strong>loop statement</strong> inside another loop statement. That is why nested loops are also called as “<strong>loop inside loop</strong>“.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Syntax of nested loops</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="c03ffa59-0732-41eb-a3da-ae5ac9fd9f9f" name="ed3ee024-81f4-458d-9790-8d96cf651e9a" type="radio">
+</input><label class="sd-tab-label" for="c03ffa59-0732-41eb-a3da-ae5ac9fd9f9f">
+for</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initialization</span><span class="p">;</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initialization</span><span class="p">;</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// statement of inside loop</span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">   </span><span class="c1">// statement of outer loop</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="7f4b8dbe-525e-4b1b-bd03-761f67652d71" name="ed3ee024-81f4-458d-9790-8d96cf651e9a" type="radio">
+</input><label class="sd-tab-label" for="7f4b8dbe-525e-4b1b-bd03-761f67652d71">
+while</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// statement of inside loop</span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">   </span><span class="c1">// statement of outer loop</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="2ebaffce-55e3-4b36-8620-768101e7d505" name="ed3ee024-81f4-458d-9790-8d96cf651e9a" type="radio">
+</input><label class="sd-tab-label" for="2ebaffce-55e3-4b36-8620-768101e7d505">
+do while</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">do</span><span class="p">{</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">do</span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// statement of inside loop</span>
+<span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">   </span><span class="c1">// statement of outer loop</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="acbb5ef2-b164-4e32-91b0-c8d093de5cee" name="ed3ee024-81f4-458d-9790-8d96cf651e9a" type="radio">
+</input><label class="sd-tab-label" for="acbb5ef2-b164-4e32-91b0-c8d093de5cee">
+do-while-for</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">do</span><span class="p">{</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initialization</span><span class="p">;</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span>
+<span class="w">         </span><span class="c1">// statement of inside for loop</span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1">// statement of inside while loop</span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">   </span><span class="c1">// statement of outer do-while loop</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="part-4-loops-control-statement">
+<h2>Part 4. Loops Control Statement<a class="headerlink" href="#part-4-loops-control-statement" title="Permalink to this headline">#</a></h2>
+<section id="break">
+<h3><code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#break" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">The <strong>break</strong> in C++ is a loop control statement which is used to terminate the loop. As soon as the break statement is encountered from within a loop, the loop iterations stops there and control returns from the loop immediately to the first statement after the loop.</p>
+<p class="sd-card-text"><strong>Syntax:</strong></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text">When we can use <strong>break</strong> :</p>
+<p class="sd-card-text">we are not sure about the actual number of iterations for the loop or we want to terminate the loop based on some condition.</p>
+<p class="sd-card-text"><strong>We will see here the usage of break statement with three different types of loops:</strong></p>
+<ol class="simple">
+<li><p class="sd-card-text">Simple loops</p></li>
+<li><p class="sd-card-text">Nested loops</p></li>
+<li><p class="sd-card-text">Infinite loops</p></li>
+</ol>
+<p class="sd-card-text">Let us now look at an examples for simple loop using break statement.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="continue">
+<h3><code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#continue" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Continue</span></code> is also a loop control statement just like the break. <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement is opposite to that of <code class="docutils literal notranslate"><span class="pre">break</span></code> statement, instead of terminating the loop, it forces to execute the next iteration of the loop.</p>
+<p class="sd-card-text">As the name suggest the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement forces the loop to continue or execute the next iteration. When the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement is executed in the loop, the code inside the loop following the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement will be skipped and next iteration of the loop will begin.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="c261b596-8f9b-4488-8161-af44d76182e5" name="4db3089a-1b91-433b-9fa3-4793e2d20886" type="radio">
+</input><label class="sd-tab-label" for="c261b596-8f9b-4488-8161-af44d76182e5">
+syntax</label><div class="sd-tab-content docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="9f65f606-459b-4e79-a2e5-1867f8990899" name="4db3089a-1b91-433b-9fa3-4793e2d20886" type="radio">
+</input><label class="sd-tab-label" for="9f65f606-459b-4e79-a2e5-1867f8990899">
+example</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Consider the situation when you need to write a program which prints number from 1 to 10 and but not 6. It is specified that you have to do this using loop and only one loop is allowed to use.
+Here comes the usage of <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement. What we can do here is we can run a loop from 1 to 10 and every time we have to compare the value of iterator with 6. If it is equal to 6 we will use the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement to continue to next iteration without printing anything otherwise we will print the value.</p>
+<p class="sd-card-text">Below is the implementation of the above idea:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="c1">// loop from 1 to 10</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1">// If i is equals to 6,</span>
+<span class="w">      </span><span class="c1">// continue to next iteration</span>
+<span class="w">      </span><span class="c1">// without printing</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">      </span><span class="k">else</span><span class="w"></span>
+<span class="w">         </span><span class="c1">// otherwise print the value of i</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="e4ea8579-e804-439c-98d0-593cb2ce63c7" name="4db3089a-1b91-433b-9fa3-4793e2d20886" type="radio">
+</input><label class="sd-tab-label" for="e4ea8579-e804-439c-98d0-593cb2ce63c7">
+output</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">7</span> <span class="m">8</span> <span class="m">9</span> <span class="m">10</span> 
+</pre></div>
+</div>
+<p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement can be used with any other loop also like while or do while in a similar way as it is used with for loop above.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-5-exercises">
+<h2>Part 5. Exercises<a class="headerlink" href="#part-5-exercises" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+1. Print all numbers from 1 to n in reverse, comma seperated.</div>
+<p class="sd-card-text"><em>Note: The last element should not have a comma placed after it!</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter your number: <span class="m">5</span>
+Ouput :  <span class="m">5</span>, <span class="m">4</span>, <span class="m">3</span>, <span class="m">2</span>, <span class="m">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+2. Given a number n, print a right triangle similar to the one below.</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input: <span class="m">7</span>
+Output:
+*
+* * 
+* * *
+* * * *
+* * * * *
+* * * * * *
+* * * * * * *
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+3. Count the number of digits in n.</div>
+<p class="sd-card-text"><em>Hint: You’ll need to use math to do this.</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter your number: <span class="m">41256</span>
+Ouput : <span class="m">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+1. Print all prime numbers between 1 and n.</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>     Enter your number: <span class="m">20</span>
+     Ouput : <span class="m">2</span> , <span class="m">3</span> ,  <span class="m">5</span> , <span class="m">7</span> , <span class="m">11</span> , <span class="m">13</span> , <span class="m">17</span>,  <span class="m">19</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<ol class="simple">
+<li><p class="sd-card-text">Exercise 1 completed.</p></li>
+<li><p class="sd-card-text">Exercise 2 completed.</p></li>
+<li><p class="sd-card-text">Exercise 3 completed.</p></li>
+<li><p class="sd-card-text">Exercise 4 completed.</p></li>
+<li><p class="sd-card-text">Exercise 5 completed.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+1. Given a number n, print a pyramid with n rows.</div>
+<p class="sd-card-text"><em>Hint: You’ll want to find patterns for spaces &amp; <code class="docutils literal notranslate"><span class="pre">*</span></code>s</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input: <span class="m">5</span>
+Output:
+    *
+   ***
+  *****
+ *******
+*********
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/lab-05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../lectures/w5.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 5</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../lectures/w6.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 6</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
