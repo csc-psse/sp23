@@ -569,6 +569,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submission">
+     Submission
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -677,6 +684,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submission">
+     Submission
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -691,14 +705,11 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="lab-12-pointers-in-c">
 <h1>Lab 12 : Pointers in C++<a class="headerlink" href="#lab-12-pointers-in-c" title="Permalink to this headline">#</a></h1>
 <p>Welcome to the tenth session of CSC 200 lab! This will familiarize you with <strong>Pointers</strong> and <strong>Referen</strong> in class as well as give you some experience in their proper use. <strong>Be sure to read and follow all instructions unless otherwise specified</strong>. You’ll find the table of contents for this lab below.</p>
-<img alt="https://www.cdn.geeksforgeeks.org/wp-content/uploads/How-Pointer-Works-In-C.png" class="align-center" src="https://www.cdn.geeksforgeeks.org/wp-content/uploads/How-Pointer-Works-In-C.png" />
 <section id="introduction-to-pointers-in-c">
 <h2>Introduction to Pointers In C++<a class="headerlink" href="#introduction-to-pointers-in-c" title="Permalink to this headline">#</a></h2>
 <p>Pointers are symbolic representation of addresses. They enable programs to simulate call-by-reference as wellas to create and manipulate dynamic data structures. It’s general declaration in C/C++ has the format:</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-How to use a pointer?</div>
 <ul class="simple">
 <li><p class="sd-card-text">Define a pointer variable</p></li>
 <li><p class="sd-card-text">Assigning the address of a variable to a pointer using unary operator (&amp;) which returns the address of thatvariable.</p></li>
@@ -707,43 +718,42 @@ How to use a pointer?</div>
 </div>
 </div>
 <p>The reason we associate data type to a pointer is that it knows how many bytes the data is stored in. When we increment a pointer, we increase the pointer by the size of data type to which it points.</p>
-<img alt="https://media.geeksforgeeks.org/wp-content/uploads/pointers-in-c.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/pointers-in-c.png" />
 <section id="syntax">
 <h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">#</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">datatype</span><span class="w"> </span><span class="o">*</span><span class="n">var_name</span><span class="p">;</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span><span class="w">   </span><span class="c1">//ptr can point to an address which holds int data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">datatype</span> <span class="o">*</span><span class="n">var_name</span><span class="p">;</span>
+<span class="nb">int</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>   <span class="o">//</span><span class="n">ptr</span> <span class="n">can</span> <span class="n">point</span> <span class="n">to</span> <span class="n">an</span> <span class="n">address</span> <span class="n">which</span> <span class="n">holds</span> <span class="nb">int</span> <span class="n">data</span>
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="w">  </span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">geeks</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// declare pointer variable    </span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  </span><span class="c1">// note that data type of ptr and var must be same</span>
-<span class="w">  </span><span class="n">ptr</span><span class="w"> </span><span class="o">=&amp;</span><span class="w"> </span><span class="n">var</span><span class="p">;</span><span class="w">    </span>
-<span class="w">  </span>
-<span class="w">  </span><span class="c1">// assign the address of a variable to a pointer</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value at ptr = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value at var = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value at *ptr = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="w">                               </span>
-<span class="c1">// Driver program</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">geeks</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;iostream&gt;</span>
+  
+<span class="n">void</span> <span class="n">geeks</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="nb">int</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  <span class="o">//</span> <span class="n">declare</span> <span class="n">pointer</span> <span class="n">variable</span>  
+  <span class="nb">int</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+  
+  <span class="o">//</span> <span class="n">note</span> <span class="n">that</span> <span class="n">data</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">ptr</span> <span class="ow">and</span> <span class="n">var</span> <span class="n">must</span> <span class="n">be</span> <span class="n">same</span>
+  <span class="n">ptr</span> <span class="o">=&amp;</span> <span class="n">var</span><span class="p">;</span>  
+  
+  <span class="o">//</span> <span class="n">assign</span> <span class="n">the</span> <span class="n">address</span> <span class="n">of</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">a</span> <span class="n">pointer</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Value at ptr = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Value at var = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">var</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Value at *ptr = &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+                             
+<span class="o">//</span> <span class="n">Driver</span> <span class="n">program</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">geeks</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <section id="output">
 <h4>Output<a class="headerlink" href="#output" title="Permalink to this headline">#</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Value at <span class="nv">ptr</span> <span class="o">=</span> 0x7ffcb9e9ea4c
-Value at <span class="nv">var</span> <span class="o">=</span> <span class="m">20</span>
-Value at *ptr <span class="o">=</span> <span class="m">20</span>
-References and Pointers
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Value</span> <span class="n">at</span> <span class="n">ptr</span> <span class="o">=</span> <span class="mh">0x7ffcb9e9ea4c</span>
+<span class="n">Value</span> <span class="n">at</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">Value</span> <span class="n">at</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">References</span> <span class="ow">and</span> <span class="n">Pointers</span>
 </pre></div>
 </div>
 </section>
@@ -752,8 +762,6 @@ References and Pointers
 <h3>Passing Arguments to Functions<a class="headerlink" href="#passing-arguments-to-functions" title="Permalink to this headline">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-There are 3 ways to pass C++ arguments to a function:</div>
 <ul class="simple">
 <li><p class="sd-card-text">call-by-value</p></li>
 <li><p class="sd-card-text">call-by-reference with pointer argument</p></li>
@@ -761,66 +769,66 @@ There are 3 ways to pass C++ arguments to a function:</div>
 </ul>
 </div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to illustrate call-by-methods in C++</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">C</span><span class="o">++</span> <span class="n">program</span> <span class="n">to</span> <span class="n">illustrate</span> <span class="n">call</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">methods</span> <span class="ow">in</span> <span class="n">C</span><span class="o">++</span>
+<span class="c1">#include &lt;bits/stdc++.h&gt;</span>
 
-<span class="c1">// Pass-by-Value</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">square1</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Address of n in square1() is not the same as n1 in main()</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;address of n1 in square1(): &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  </span><span class="c1">// clone modified inside the function</span>
-<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="c1">// Pass-by-Reference with Pointer Arguments</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">square2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="w"> </span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Address of n in square2() is the same as n2 in main()</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;address of n2 in square2(): &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  </span><span class="c1">// Explicit de-referencing to get the value pointed-to</span>
-<span class="w">  </span><span class="o">*</span><span class="n">n</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="o">//</span> <span class="n">Pass</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">Value</span>
+<span class="nb">int</span> <span class="n">square1</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">)</span> 
+<span class="p">{</span>
+  <span class="o">//</span> <span class="n">Address</span> <span class="n">of</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">square1</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">the</span> <span class="n">same</span> <span class="k">as</span> <span class="n">n1</span> <span class="ow">in</span> <span class="n">main</span><span class="p">()</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;address of n1 in square1(): &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  
+  <span class="o">//</span> <span class="n">clone</span> <span class="n">modified</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">function</span>
+  <span class="n">n</span> <span class="o">*=</span> <span class="n">n</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Pass</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">Reference</span> <span class="k">with</span> <span class="n">Pointer</span> <span class="n">Arguments</span>
+<span class="n">void</span> <span class="n">square2</span><span class="p">(</span><span class="nb">int</span> <span class="o">*</span><span class="n">n</span><span class="p">)</span> 
+<span class="p">{</span>
+  <span class="o">//</span> <span class="n">Address</span> <span class="n">of</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">square2</span><span class="p">()</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">same</span> <span class="k">as</span> <span class="n">n2</span> <span class="ow">in</span> <span class="n">main</span><span class="p">()</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;address of n2 in square2(): &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  
+  <span class="o">//</span> <span class="n">Explicit</span> <span class="n">de</span><span class="o">-</span><span class="n">referencing</span> <span class="n">to</span> <span class="n">get</span> <span class="n">the</span> <span class="n">value</span> <span class="n">pointed</span><span class="o">-</span><span class="n">to</span>
+  <span class="o">*</span><span class="n">n</span> <span class="o">*=</span> <span class="o">*</span><span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="c1">// Pass-by-Reference with Reference Arguments</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">square3</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Address of n in square3() is the same as n3 in main()</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;address of n3 in square3(): &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  </span><span class="c1">// Implicit de-referencing (without &#39;*&#39;)</span>
-<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">geeks</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Call-by-Value</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;address of n1 in main(): &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Square of n1: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">square1</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;No change in n1: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="o">//</span> <span class="n">Pass</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">Reference</span> <span class="k">with</span> <span class="n">Reference</span> <span class="n">Arguments</span>
+<span class="n">void</span> <span class="n">square3</span><span class="p">(</span><span class="nb">int</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="o">//</span> <span class="n">Address</span> <span class="n">of</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">square3</span><span class="p">()</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">same</span> <span class="k">as</span> <span class="n">n3</span> <span class="ow">in</span> <span class="n">main</span><span class="p">()</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;address of n3 in square3(): &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  
+  <span class="o">//</span> <span class="n">Implicit</span> <span class="n">de</span><span class="o">-</span><span class="n">referencing</span> <span class="p">(</span><span class="n">without</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+  <span class="n">n</span> <span class="o">*=</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">void</span> <span class="n">geeks</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="o">//</span> <span class="n">Call</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">Value</span>
+  <span class="nb">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;address of n1 in main(): &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">n1</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Square of n1: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">square1</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;No change in n1: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n1</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
 
-<span class="w">  </span><span class="c1">// Call-by-Reference with Pointer Argumentsint</span>
-<span class="w">  </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;address of n2 in main(): &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">square2</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n2</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Square of n2: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Change reflected in n2: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  </span><span class="c1">// Call-by-Reference with Reference Arguments</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;address of n3 in main(): &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">square3</span><span class="p">(</span><span class="n">n3</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Square of n3: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Change reflected in n3: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+  <span class="o">//</span> <span class="n">Call</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">Reference</span> <span class="k">with</span> <span class="n">Pointer</span> <span class="n">Argumentsint</span>
+  <span class="n">n2</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;address of n2 in main(): &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">n2</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="n">square2</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n2</span><span class="p">);</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Square of n2: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n2</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Change reflected in n2: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n2</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  
+  <span class="o">//</span> <span class="n">Call</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">Reference</span> <span class="k">with</span> <span class="n">Reference</span> <span class="n">Arguments</span>
+  <span class="nb">int</span> <span class="n">n3</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;address of n3 in main(): &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">n3</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="n">square3</span><span class="p">(</span><span class="n">n3</span><span class="p">);</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Square of n3: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n3</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Change reflected in n3: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n3</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="c1">// Driver programint</span>
-<span class="n">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">geeks</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="o">//</span> <span class="n">Driver</span> <span class="n">programint</span>
+<span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">geeks</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <section id="id1">
@@ -845,30 +853,30 @@ There are 3 ways to pass C++ arguments to a function:</div>
 <section id="array-name-as-pointers">
 <h3>Array Name as Pointers<a class="headerlink" href="#array-name-as-pointers" title="Permalink to this headline">#</a></h3>
 <p>An array name contains the address of first element of the array which acts like constant pointer. It means, theaddress stored in array name can’t be changed.For example, if we have an array named val then val and &amp;val[0] can be used interchangeably.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to illustrate Array Name as Pointers in C++</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">C</span><span class="o">++</span> <span class="n">program</span> <span class="n">to</span> <span class="n">illustrate</span> <span class="n">Array</span> <span class="n">Name</span> <span class="k">as</span> <span class="n">Pointers</span> <span class="ow">in</span> <span class="n">C</span><span class="o">++</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="c1">#include &lt;bits/stdc++.h&gt;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">geeks</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Declare an array</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  </span><span class="c1">// declare pointer variable</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  </span><span class="c1">// Assign the address of val[0] to ptr</span>
-<span class="w">  </span><span class="c1">// We can use ptr=&amp;val[0];(both are same)</span>
-<span class="w">  </span><span class="n">ptr</span><span class="o">=</span><span class="n">val</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Elements of the array are: &quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="n">void</span> <span class="n">geeks</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="o">//</span> <span class="n">Declare</span> <span class="n">an</span> <span class="n">array</span>
+  <span class="nb">int</span> <span class="n">val</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span> <span class="p">};</span>
+  
+  <span class="o">//</span> <span class="n">declare</span> <span class="n">pointer</span> <span class="n">variable</span>
+  <span class="nb">int</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+  
+  <span class="o">//</span> <span class="n">Assign</span> <span class="n">the</span> <span class="n">address</span> <span class="n">of</span> <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">to</span> <span class="n">ptr</span>
+  <span class="o">//</span> <span class="n">We</span> <span class="n">can</span> <span class="n">use</span> <span class="n">ptr</span><span class="o">=&amp;</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">];(</span><span class="n">both</span> <span class="n">are</span> <span class="n">same</span><span class="p">)</span>
+  <span class="n">ptr</span><span class="o">=</span><span class="n">val</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Elements of the array are: &quot;</span><span class="p">;</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
 
-<span class="c1">// Driver program</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">geeks</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="o">//</span> <span class="n">Driver</span> <span class="n">program</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">geeks</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <section id="id2">
@@ -883,8 +891,6 @@ There are 3 ways to pass C++ arguments to a function:</div>
 <h3>Pointer Expressions and Pointer Arithmetic<a class="headerlink" href="#pointer-expressions-and-pointer-arithmetic" title="Permalink to this headline">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-A limited set of arithmetic operations can be performed on pointers which are:</div>
 <ul class="simple">
 <li><p class="sd-card-text">incremented ( ++ )</p></li>
 <li><p class="sd-card-text">decremented ( — )</p></li>
@@ -895,48 +901,47 @@ A limited set of arithmetic operations can be performed on pointers which are:</
 <p class="sd-card-text"><em>Note: Pointer arithmetic is meaningless unless performed on an array.</em></p>
 </div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stc++.h&gt;</span><span class="cp"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;bits/stc++.h&gt;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">geeks</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  	</span><span class="c1">// Declare an array</span>
-<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">};</span><span class="w"></span>
+<span class="n">void</span> <span class="n">geeks</span> <span class="p">()</span> 
+<span class="p">{</span>
+  	<span class="o">//</span> <span class="n">Declare</span> <span class="n">an</span> <span class="n">array</span>
+	<span class="nb">int</span> <span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">};</span>
 
-<span class="w">	</span><span class="c1">// Declare pointer variable</span>
-<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span><span class="w"></span>
+	<span class="o">//</span> <span class="n">Declare</span> <span class="n">pointer</span> <span class="n">variable</span>
+	<span class="nb">int</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
 
-<span class="w">	</span><span class="c1">// Assign the address of v[0] to ptr</span>
-<span class="w">	</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+	<span class="o">//</span> <span class="n">Assign</span> <span class="n">the</span> <span class="n">address</span> <span class="n">of</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">to</span> <span class="n">ptr</span>
+	<span class="n">ptr</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
 
-<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value at ptr = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">      	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value at *ptr = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+	<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+      	<span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Value at ptr = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+      	<span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Value at *ptr = &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
 
-<span class="w">  		</span><span class="c1">// Increment pointer ptr by 1</span>
-<span class="w">  		</span><span class="n">ptr</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+  		<span class="o">//</span> <span class="n">Increment</span> <span class="n">pointer</span> <span class="n">ptr</span> <span class="n">by</span> <span class="mi">1</span>
+  		<span class="n">ptr</span><span class="o">++</span><span class="p">;</span>
 
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="c1">// Driver program</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  	</span><span class="n">geeks</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="o">//</span> <span class="n">Driver</span> <span class="n">program</span>
+<span class="nb">int</span> <span class="n">main</span> <span class="p">()</span>
+<span class="p">{</span>
+  	<span class="n">geeks</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <section id="id3">
 <h4>Output<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Value at <span class="nv">ptr</span> <span class="o">=</span> 0x7fff9a9e7920
-Value at *ptr <span class="o">=</span> <span class="m">10</span>
-Value at <span class="nv">ptr</span> <span class="o">=</span> 0x7fff9a9e7924
-Value at *ptr <span class="o">=</span> <span class="m">100</span>
-Value at <span class="nv">ptr</span> <span class="o">=</span> 0x7fff9a9e7928
-Value at *ptr <span class="o">=</span> <span class="m">200</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Value</span> <span class="n">at</span> <span class="n">ptr</span> <span class="o">=</span> <span class="mh">0x7fff9a9e7920</span>
+<span class="n">Value</span> <span class="n">at</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">Value</span> <span class="n">at</span> <span class="n">ptr</span> <span class="o">=</span> <span class="mh">0x7fff9a9e7924</span>
+<span class="n">Value</span> <span class="n">at</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">Value</span> <span class="n">at</span> <span class="n">ptr</span> <span class="o">=</span> <span class="mh">0x7fff9a9e7928</span>
+<span class="n">Value</span> <span class="n">at</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mi">200</span>
 </pre></div>
 </div>
-<img alt="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-presentation-31.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-presentation-31.png" />
 </section>
 </section>
 </section>
@@ -986,7 +991,7 @@ Value at *ptr <span class="o">=</span> <span class="m">200</span>
 <section id="pointers-and-string-literals">
 <h3>Pointers and String literals<a class="headerlink" href="#pointers-and-string-literals" title="Permalink to this headline">#</a></h3>
 <p>String literals are arrays containing null-terminated character sequences. String literals are arrays of typecharacter plus terminating null-character, with each of the elements being of type const char (as characters ofstring can’t be modified).</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;geek&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="s2">&quot;geek&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <table class="table">
@@ -1013,8 +1018,8 @@ Value at *ptr <span class="o">=</span> <span class="m">200</span>
 </tbody>
 </table>
 <p>As pointers and arrays behave in the same way in expressions, ptr can be used to access the characters of string literal. For example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">ptr</span><span class="o">+</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
-<span class="kt">char</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span> <span class="n">x</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">ptr</span><span class="o">+</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">char</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
 </pre></div>
 </div>
 <p>Here, both x and y contain k stored at 1803 (1800+3).</p>
@@ -1022,7 +1027,7 @@ Value at *ptr <span class="o">=</span> <span class="m">200</span>
 <section id="pointers-to-pointers">
 <h3>Pointers to pointers<a class="headerlink" href="#pointers-to-pointers" title="Permalink to this headline">#</a></h3>
 <p>In C++, we can create a pointer to a pointer that in turn may point to data or other pointer. The syntax simplyrequires the unary operator (*) for each level of indirection while declaring the pointer.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>char a;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>char a;
 char *b;
 char ** c;
 a = ’g’;
@@ -1033,66 +1038,66 @@ c = &amp;b;
 <p>Here <code class="docutils literal notranslate"><span class="pre">b</span></code> points to a <code class="docutils literal notranslate"><span class="pre">char</span></code> that stores ‘g’ and <code class="docutils literal notranslate"><span class="pre">c</span></code> points to the pointer <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
 <p>Void Pointers</p>
 <p>This is a special type of pointer available in C++ which represents absence of type. void pointers are pointers that point to a value that has no type (and thus also an undetermined length and undetermined dereferencing properties). This means that void pointers have great flexibility as it can point to any data type. There is payoff for this flexibility. These pointers cannot be directly dereferenced. They have to be first transformed into some otherpointer type that points to a concrete data type before being dereferenced.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to illustrate Void Pointer in C++</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">C</span><span class="o">++</span> <span class="n">program</span> <span class="n">to</span> <span class="n">illustrate</span> <span class="n">Void</span> <span class="n">Pointer</span> <span class="ow">in</span> <span class="n">C</span><span class="o">++</span>
+<span class="c1">#include &lt;bits/stdc++.h&gt;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">increase</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ptrsize</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  	</span><span class="k">if</span><span class="p">(</span><span class="n">ptrsize</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      	</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ptrchar</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span>
-<span class="w">      	</span><span class="c1">// Typecast data to a char pointer</span>
-<span class="w">      	</span><span class="n">ptrchar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span>
-<span class="w">      	</span><span class="c1">// Increase the char stored at *ptrchar by 1(*ptrchar)++;</span>
-<span class="w">      	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;*data points to a char&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">elseif</span><span class="w"> </span><span class="p">(</span><span class="n">ptrsize</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      	</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptrint</span><span class="p">;</span><span class="w"></span>
-<span class="w">      	</span><span class="c1">// Typecast data to a int pointer</span>
-<span class="w">      	</span><span class="n">ptrint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span>
-<span class="w">      	</span><span class="c1">// Increase the int stored at *ptrchar by 1(*ptrint)++;</span>
-<span class="w">      	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;*data points to an int&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="n">void</span> <span class="n">increase</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="nb">int</span> <span class="n">ptrsize</span><span class="p">)</span>
+<span class="p">{</span>
+  	<span class="k">if</span><span class="p">(</span><span class="n">ptrsize</span> <span class="o">==</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">char</span><span class="p">))</span>
+    <span class="p">{</span>
+      	<span class="n">char</span> <span class="o">*</span><span class="n">ptrchar</span><span class="p">;</span>
+    
+      	<span class="o">//</span> <span class="n">Typecast</span> <span class="n">data</span> <span class="n">to</span> <span class="n">a</span> <span class="n">char</span> <span class="n">pointer</span>
+      	<span class="n">ptrchar</span> <span class="o">=</span> <span class="p">(</span><span class="n">char</span><span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">;</span>
+    
+      	<span class="o">//</span> <span class="n">Increase</span> <span class="n">the</span> <span class="n">char</span> <span class="n">stored</span> <span class="n">at</span> <span class="o">*</span><span class="n">ptrchar</span> <span class="n">by</span> <span class="mi">1</span><span class="p">(</span><span class="o">*</span><span class="n">ptrchar</span><span class="p">)</span><span class="o">++</span><span class="p">;</span>
+      	<span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;*data points to a char&quot;</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="n">elseif</span> <span class="p">(</span><span class="n">ptrsize</span> <span class="o">==</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+    <span class="p">{</span>
+      	<span class="nb">int</span> <span class="o">*</span><span class="n">ptrint</span><span class="p">;</span>
+      	<span class="o">//</span> <span class="n">Typecast</span> <span class="n">data</span> <span class="n">to</span> <span class="n">a</span> <span class="nb">int</span> <span class="n">pointer</span>
+      	<span class="n">ptrint</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">;</span>
+    
+      	<span class="o">//</span> <span class="n">Increase</span> <span class="n">the</span> <span class="nb">int</span> <span class="n">stored</span> <span class="n">at</span> <span class="o">*</span><span class="n">ptrchar</span> <span class="n">by</span> <span class="mi">1</span><span class="p">(</span><span class="o">*</span><span class="n">ptrint</span><span class="p">)</span><span class="o">++</span><span class="p">;</span>
+      	<span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;*data points to an int&quot;</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">geek</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  	</span><span class="c1">// Declare a character</span>
-<span class="w">  	</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;x&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  	</span><span class="c1">// Declare an integer</span>
-<span class="w">  	</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  	</span><span class="c1">// Call increase function using a char and int address respectively</span>
-<span class="w">  	</span><span class="n">increase</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">c</span><span class="p">));</span><span class="w"></span>
-<span class="w">  	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The new value of c is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  	</span><span class="n">increase</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">i</span><span class="p">));</span><span class="w"></span>
-<span class="w">  	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The new value of i is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="n">void</span> <span class="n">geek</span><span class="p">()</span>
+<span class="p">{</span>
+  	<span class="o">//</span> <span class="n">Declare</span> <span class="n">a</span> <span class="n">character</span>
+  	<span class="n">char</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">;</span>
+  
+  	<span class="o">//</span> <span class="n">Declare</span> <span class="n">an</span> <span class="n">integer</span>
+  	<span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  
+  	<span class="o">//</span> <span class="n">Call</span> <span class="n">increase</span> <span class="n">function</span> <span class="n">using</span> <span class="n">a</span> <span class="n">char</span> <span class="ow">and</span> <span class="nb">int</span> <span class="n">address</span> <span class="n">respectively</span>
+  	<span class="n">increase</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+  	<span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;The new value of c is: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  	<span class="n">increase</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+  	<span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;The new value of i is: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="c1">// Driver program</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  	</span><span class="n">geek</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="o">//</span> <span class="n">Driver</span> <span class="n">program</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  	<span class="n">geek</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <section id="id4">
 <h4>Output<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>*data points to a char
-The new value of c is: y
-*data points to an int
-The new value of i is: <span class="m">11</span>
-Invalid pointers
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">data</span> <span class="n">points</span> <span class="n">to</span> <span class="n">a</span> <span class="n">char</span>
+<span class="n">The</span> <span class="n">new</span> <span class="n">value</span> <span class="n">of</span> <span class="n">c</span> <span class="ow">is</span><span class="p">:</span> <span class="n">y</span>
+<span class="o">*</span><span class="n">data</span> <span class="n">points</span> <span class="n">to</span> <span class="n">an</span> <span class="nb">int</span>
+<span class="n">The</span> <span class="n">new</span> <span class="n">value</span> <span class="n">of</span> <span class="n">i</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">11</span>
+<span class="n">Invalid</span> <span class="n">pointers</span>
 </pre></div>
 </div>
 <p>A pointer should point to a valid address but not necessarily to valid elements (like for arrays). These are called invalid pointers. Uninitialized pointers are also invalid pointers.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr1</span><span class="p">;</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="o">*</span><span class="n">ptr1</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="nb">int</span> <span class="o">*</span><span class="n">ptr2</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">+</span> <span class="mi">20</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Here, <code class="docutils literal notranslate"><span class="pre">ptr1</span></code> is uninitialized so it becomes an invalid pointer and <code class="docutils literal notranslate"><span class="pre">ptr2</span></code> is out of bounds of arr so it also becomes aninvalid pointer. (Note: invalid pointers do not necessarily raise compile errors)</p>
@@ -1101,8 +1106,8 @@ Invalid pointers
 <section id="null-pointers">
 <h3>NULL Pointers<a class="headerlink" href="#null-pointers" title="Permalink to this headline">#</a></h3>
 <p>Null pointer is a pointer which point nowhere and not just an invalid address.Following are 2 methods to assign a pointer as NULL;</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="o">*</span><span class="n">ptr1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="o">*</span><span class="n">ptr2</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -1111,8 +1116,6 @@ Invalid pointers
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-1. Write a program to reverse the digits a number using pointers.</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">123</span> <span class="o">=</span>&gt; <span class="m">321</span>
   
 <span class="nv">456</span> <span class="o">=</span>&gt; <span class="m">654</span>
@@ -1122,12 +1125,31 @@ Invalid pointers
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-2. Write a program to find the max of an integral data set.</div>
 <p class="sd-card-text">The program will ask the user to input the number of data values in the set and each value. The program prints on screen a pointer that points to the max value.</p>
 </div>
 </div>
+<section id="submission">
+<h3>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt>To Receive Credit</dt><dd><p class="sd-card-text">Submit a compressed folder with all your files included within.</p>
+</dd>
+<dd><p class="sd-card-text"><a class="reference external" href="https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5">Windows File Compression</a></p>
+</dd>
+<dd><p class="sd-card-text"><a class="reference external" href="https://support.apple.com/guide/mac-help/zip-and-unzip-files-and-folders-on-mac-mchlp2528/mac">MacOS File Compression</a></p>
+</dd>
+<dt>Naming Conventions</dt><dd><p class="sd-card-text">Filename   =&gt; ex#.cpp</p>
+</dd>
+<dd><p class="sd-card-text">Compressed =&gt; lastname_firstname_lab#</p>
+</dd>
+<dd><p class="sd-card-text"><em>Note      =&gt; compressed files end in .zip</em></p>
+</dd>
+</dl>
+</div>
+</div>
 <p><strong><em>Note: You must demo to a TA in order to receive credit!</em></strong></p>
+</section>
 </section>
 </section>
 
