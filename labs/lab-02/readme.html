@@ -50,8 +50,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Week 3" href="../../lectures/w3.html" />
@@ -614,6 +612,11 @@ title="Print to PDF"
      Requirements
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submission">
+     Submission
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -766,6 +769,11 @@ title="Print to PDF"
      Requirements
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submission">
+     Submission
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -786,8 +794,6 @@ title="Print to PDF"
 <p>Hopefully you have chosen your C++ IDE for use throughout the semester, have it setup, and are ready to program.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Suggestions:</div>
 <ul class="simple">
 <li><p class="sd-card-text">Windows</p>
 <ul>
@@ -830,19 +836,19 @@ Suggestions:</div>
 <section id="making-a-file">
 <h3>Making a file<a class="headerlink" href="#making-a-file" title="Permalink to this headline">#</a></h3>
 <p>We can  make empty files on the fly with the <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">&lt;filename&gt;</span></code> command. Try the following below:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ touch test.cpp
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ touch test.cpp
 </pre></div>
 </div>
 <p>Now, you should see <code class="docutils literal notranslate"><span class="pre">test.cpp</span></code> in your file manager on the left-hand side.</p>
 <section id="removing-files">
 <h4>Removing files<a class="headerlink" href="#removing-files" title="Permalink to this headline">#</a></h4>
 <p>Before your workspace gets too cluttered, let’s remove that test file you just created with the <code class="docutils literal notranslate"><span class="pre">touch</span></code> command. You can do this by typing:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rm test.cpp
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm test.cpp
 </pre></div>
 </div>
 <p>The test file you just created should be removed if this command ran properly.</p>
 <p>Ok, lets create another empty file with the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ touch hello.cpp
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ touch hello.cpp
 </pre></div>
 </div>
 </section>
@@ -850,7 +856,7 @@ Suggestions:</div>
 <h4>Creating a new directory<a class="headerlink" href="#creating-a-new-directory" title="Permalink to this headline">#</a></h4>
 <p>Making and deleting files is great but we often need to organize them in a sensible way. We usually do this by making <strong>directories</strong>. You can think of directories as folders. They’re named locations that can hold other files or directories.</p>
 <p>To make a directory type the following terminal command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir projects
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir projects
 </pre></div>
 </div>
 <p>Now you should see your <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">projects</span></code> folder in your file manager.</p>
@@ -859,18 +865,18 @@ Suggestions:</div>
 <section id="removing-a-directory">
 <h3>Removing a directory<a class="headerlink" href="#removing-a-directory" title="Permalink to this headline">#</a></h3>
 <p>Just like how we created and removed a file, we can do the same with directories. Lets make a test directory named <code class="docutils literal notranslate"><span class="pre">testd</span></code> with the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir testd
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir testd
 </pre></div>
 </div>
 <p>To delete this directory (only if is empty), we can simply run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rmdir testd
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rmdir testd
 </pre></div>
 </div>
 </section>
 <section id="moving-files">
 <h3>Moving files<a class="headerlink" href="#moving-files" title="Permalink to this headline">#</a></h3>
 <p>Lets clean up our workspace by moving that <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> file into our projects folder.  The syntax to move one file from one location to another location is <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">&lt;source&gt;</span> <span class="pre">&lt;target&gt;</span></code>. In this case, it would be:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mv hello.cpp projects
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mv hello.cpp projects
 </pre></div>
 </div>
 <p>Now, our <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> file is in our <code class="docutils literal notranslate"><span class="pre">projects</span></code> directory.</p>
@@ -878,7 +884,7 @@ Suggestions:</div>
 <section id="print-working-directory">
 <h3>Print Working Directory<a class="headerlink" href="#print-working-directory" title="Permalink to this headline">#</a></h3>
 <p>To see where we are, the command <code class="docutils literal notranslate"><span class="pre">pwd</span></code> will print the current directory you are operating in to the command line. Currently, running the command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">pwd</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
 </pre></div>
 </div>
 <p>If you are running on ‘Ubuntu’, it should print out <code class="docutils literal notranslate"><span class="pre">/home/ubuntu</span></code>, if at any point you changed directory with the following command your output will be different. The output of this line will differ based on your environment.</p>
@@ -886,17 +892,17 @@ Suggestions:</div>
 <section id="change-directory">
 <h3>Change Directory<a class="headerlink" href="#change-directory" title="Permalink to this headline">#</a></h3>
 <p>Now that we have made a new directory named <code class="docutils literal notranslate"><span class="pre">projects</span></code> and moved our <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> file to it, we need to navigate our terminal to this directory in order to have easy access to our file for editing/compiling/file management. This is accomplished with the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command with syntax as follows, <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">&lt;directory_path&gt;</span></code>, meaning we can move more than one file at a time. For now the following command should get you to where you need to be,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> projects/
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd projects/
 </pre></div>
 </div>
 <p>Now that we have changed directory, we can execute the earlier commands to validate our position within the file system. Executing <code class="docutils literal notranslate"><span class="pre">pwd</span></code> from this file should output <code class="docutils literal notranslate"><span class="pre">/home/ubuntu/projects</span></code> (again, assuming you are running on ‘Ubuntu’) and executing <code class="docutils literal notranslate"><span class="pre">ls</span></code> should show that there is a file named <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> present.</p>
 <p>Some useful cd commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#### to change your working directory to its parent directory, i.e. one step back</span>
-$ <span class="nb">cd</span> ..
-<span class="c1">#### to change back to your user directory, i.e. &quot;/home/ubuntu&quot; or &quot;~/&quot; in the case of CS50 IDE&#39;s file system</span>
-$ <span class="nb">cd</span>
-<span class="c1">#### to change back to the file system root directory, i.e. &quot;/&quot; for short</span>
-$ <span class="nb">cd</span> /
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#### to change your working directory to its parent directory, i.e. one step back
+$ cd ..
+#### to change back to your user directory, i.e. &quot;/home/ubuntu&quot; or &quot;~/&quot; in the case of CS50 IDE&#39;s file system
+$ cd
+#### to change back to the file system root directory, i.e. &quot;/&quot; for short
+$ cd /
 </pre></div>
 </div>
 <blockquote>
@@ -911,7 +917,7 @@ $ <span class="nb">cd</span> /
 </pre></div>
 </div>
 <p>The contents of that file would print out to our terminal by running:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat test.txt
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat test.txt
 </pre></div>
 </div>
 <p>Spend some time to create a text file with some content in it and use the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command to report those contents to the console.</p>
@@ -924,27 +930,25 @@ $ <span class="nb">cd</span> /
 <section id="part-3-command-line-arguments">
 <h2>Part 3. Command-Line Arguments<a class="headerlink" href="#part-3-command-line-arguments" title="Permalink to this headline">#</a></h2>
 <p>It is often helpful for us to specify how a program will run by providing arguments during the execution process. For example, normally compiling a program and running may look like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g++ main.cpp -o prog <span class="o">&amp;&amp;</span> ./prog
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="n">main</span><span class="o">.</span><span class="n">cpp</span> <span class="o">-</span><span class="n">o</span> <span class="n">prog</span> <span class="o">&amp;&amp;</span> <span class="o">./</span><span class="n">prog</span>
 </pre></div>
 </div>
 <p>But if we wanted the execution of our program to change based on some variable (number of loops, size of a data structure, etc.) we can provide an argument here like so:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g++ main.cpp -o prog <span class="o">&amp;&amp;</span> ./prog <span class="m">5</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="n">main</span><span class="o">.</span><span class="n">cpp</span> <span class="o">-</span><span class="n">o</span> <span class="n">prog</span> <span class="o">&amp;&amp;</span> <span class="o">./</span><span class="n">prog</span> <span class="mi">5</span>
 </pre></div>
 </div>
 <p>Or even multiple arguments</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g++ main.cpp -o prog <span class="o">&amp;&amp;</span> ./prog <span class="m">5</span> <span class="m">3</span> <span class="m">6</span> <span class="nb">local</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="n">main</span><span class="o">.</span><span class="n">cpp</span> <span class="o">-</span><span class="n">o</span> <span class="n">prog</span> <span class="o">&amp;&amp;</span> <span class="o">./</span><span class="n">prog</span> <span class="mi">5</span> <span class="mi">3</span> <span class="mi">6</span> <span class="n">local</span>
 </pre></div>
 </div>
 <p>Our code would look like so:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// do something...</span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">main</span> <span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">do</span> <span class="n">something</span><span class="o">...</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-C++ String resources</div>
 <ul class="simple">
 <li><p class="sd-card-text"><a class="reference external" href="https://www.tutorialspoint.com/cplusplus/cpp_strings.htm">https://www.tutorialspoint.com/cplusplus/cpp_strings.htm</a></p></li>
 <li><p class="sd-card-text"><a class="reference external" href="https://www.youtube.com/watch?v=h2LGTzQXzJU">https://www.youtube.com/watch?v=h2LGTzQXzJU</a></p></li>
@@ -954,13 +958,13 @@ C++ String resources</div>
 </div>
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">argc</span></code> stands for the number of arguments passed (including the command to run the program!) and <code class="docutils literal notranslate"><span class="pre">argv</span></code> holds those arguments. Note the type! They will all be treated as char arrays or C-Style strings. You will need to convert them if you want to use them as different types (int, float, etc.) Using the last argument example, this is how we would extract them:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="c1"> // string, stoi (string to integer)</span><span class="cp"></span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"> </span><span class="c1">// extracts the 5</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span><span class="w"> </span><span class="c1">// extracts the 3</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span><span class="w"> </span><span class="c1">// extracts the 6</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span><span class="w"> </span><span class="c1">// converts the C-Style string to a C++ String Object</span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;string&gt; // string, stoi (string to integer)</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="nb">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="o">//</span> <span class="n">extracts</span> <span class="n">the</span> <span class="mi">5</span>
+    <span class="nb">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span> <span class="o">//</span> <span class="n">extracts</span> <span class="n">the</span> <span class="mi">3</span>
+    <span class="nb">int</span> <span class="n">num3</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span> <span class="o">//</span> <span class="n">extracts</span> <span class="n">the</span> <span class="mi">6</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="nb">str</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span> <span class="o">//</span> <span class="n">converts</span> <span class="n">the</span> <span class="n">C</span><span class="o">-</span><span class="n">Style</span> <span class="n">string</span> <span class="n">to</span> <span class="n">a</span> <span class="n">C</span><span class="o">++</span> <span class="n">String</span> <span class="n">Object</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Additional reading can be found in <a class="reference external" href="https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/">this tutorial</a></p>
@@ -1059,22 +1063,16 @@ Good</div>
 <p>The hardest part of programming is figuring out where you went wrong. There are a few techniques we can use to narrow in on our mistakes:</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Rubber-duck debugging</div>
 <p class="sd-card-text">Often we just need to methodically work through the code. Unfortunately, we tend to make assumptions while reviewing code that we wrote. In an effort to prevent glossing over key portions, the goal of this type of debugging is to explain the code to someone as if they had never seen it before. Since it can be difficult to find someone to speak to every time you get stuck (hint: a lot) it is helpful to substitute in a rubber duck. Yes, the generic kind you find in/around bath tubs. Here is a bit more reading on the subject (I recommend giving this a quick read!) <a class="reference external" href="https://www.thoughtfulcode.com/rubber-duck-debugging-psychology/">https://www.thoughtfulcode.com/rubber-duck-debugging-psychology/</a></p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Print Statements</div>
 <p class="sd-card-text">Sometimes we just need to output everything our program is doing to track down the issue. This is <em>very</em> primitive, and does not scale well. But in an isolated environment is a quick and dirty way to discover where a calculation is going wrong. Bonus tip: Read input from the keyboard to “pause” your program and step through it slowly!</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Use a real debugger</div>
 <p class="sd-card-text">This is the proper way to perform technique #2. Set breakpoints accordingly, compile your code, run it through a debugger, and use the tools given to you to explore the values in all of the variables, check scope, trace the program control, etc. This process will differ based on the IDE you are using, lookup tutorials and reach out to staff for help.</p>
 </div>
 </div>
@@ -1084,8 +1082,6 @@ Use a real debugger</div>
 <p>Use what you learned in this lab (and Brightspace!) to complete the following exercises:</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-1. Create a new .cpp file, copy the following code into your IDE, fix the mistakes, and get it to compile &amp; run.</div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// A mixed up program</span>
 
 <span class="c1">// TODO: Place your name here</span>
@@ -1102,8 +1098,6 @@ Use a real debugger</div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-2. Create a new <span class="math notranslate nohighlight">\(.cpp\)</span> file, copy the following code into your IDE, and complete the instructions in the <span class="math notranslate nohighlight">\(TODO\)</span></div>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* This program takes two values from the user and then swaps them</span>
 <span class="cm">	before printing the values.  The user will be prompted to enter</span>
 <span class="cm">	both numbers. */</span><span class="w"></span>
@@ -1115,39 +1109,39 @@ Use a real debugger</div>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 
 <span class="p">{</span><span class="w"></span>
-<span class="w">	</span>
+
 <span class="w">	</span><span class="kt">float</span><span class="w"> </span><span class="n">firstNumber</span><span class="p">;</span><span class="w"></span>
 <span class="w">	</span><span class="kt">float</span><span class="w"> </span><span class="n">secondNumber</span><span class="p">;</span><span class="w"></span>
-<span class="w">	</span>
+
 <span class="w">	</span><span class="c1">// Prompt user to enter the first number.</span>
-<span class="w">	</span>
+
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter the first number&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Then hit enter&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w">  </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstNumber</span><span class="p">;</span><span class="w"></span>
-<span class="w">	</span>
+
 <span class="w">	</span><span class="c1">// Promt user to enter the second number.</span>
-<span class="w">	</span>
+
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter the second number&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Then hit enter&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w">  </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">secondNumber</span><span class="p">;</span><span class="w"></span>
-<span class="w">	</span>
+
 <span class="w">	</span><span class="c1">// Echo print the input.</span>
-<span class="w">	</span>
+
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;You input the numbers as &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstNumber</span><span class="w"></span>
 <span class="w">		 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">secondNumber</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">	</span>
+
 <span class="w">    </span><span class="cm">/* TODO: Write the code to swap the values of the two variables, </span>
 <span class="cm">    	firstNumber and secondNumber.</span>
 <span class="cm">     DO NOT modify any of the code I&#39;ve given you */</span><span class="w"></span>
 
-<span class="w">    </span>
+<span class="w">  </span>
 <span class="w">	</span><span class="c1">// Output the values.</span>
-<span class="w">	</span>
+
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;After swapping, the values of the two numbers are &quot;</span><span class="w"></span>
 <span class="w">	     </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstNumber</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">secondNumber</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">	</span>
+
 <span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">	</span>
+
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
@@ -1155,8 +1149,6 @@ Use a real debugger</div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-3. Follow the directions below to create a new program.</div>
 <dl class="simple myst">
 <dt>Write a program that converts and prints a user-supplied measurement in inches into:</dt><dd><p class="sd-card-text">a. foot (12 inches)</p>
 </dd>
@@ -1187,6 +1179,27 @@ Use a real debugger</div>
 <li><p class="sd-card-text">Exercise 2 values are swapped, compiles, and runs correctly.</p></li>
 <li><p class="sd-card-text">Exercise 3 implemented to specification, compiles, and runs correctly…</p></li>
 </ol>
+</div>
+</div>
+</section>
+<section id="submission">
+<h3>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt>To Receive Credit</dt><dd><p class="sd-card-text">Submit a compressed folder with all your files included within.</p>
+</dd>
+<dd><p class="sd-card-text"><a class="reference external" href="https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5">Windows File Compression</a></p>
+</dd>
+<dd><p class="sd-card-text"><a class="reference external" href="https://support.apple.com/guide/mac-help/zip-and-unzip-files-and-folders-on-mac-mchlp2528/mac">MacOS File Compression</a></p>
+</dd>
+<dt>Naming Conventions</dt><dd><p class="sd-card-text">Filename   =&gt; ex#.cpp</p>
+</dd>
+<dd><p class="sd-card-text">Compressed =&gt; lastname_firstname_lab#</p>
+</dd>
+<dd><p class="sd-card-text"><em>Note      =&gt; compressed files end in .zip</em></p>
+</dd>
+</dl>
 </div>
 </div>
 </section>

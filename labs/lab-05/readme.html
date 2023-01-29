@@ -585,6 +585,11 @@ title="Print to PDF"
      Requirements
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submission">
+     Submission
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -710,6 +715,11 @@ title="Print to PDF"
      Requirements
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submission">
+     Submission
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -731,22 +741,22 @@ title="Print to PDF"
 <section id="iterative-method">
 <h3>Iterative Method<a class="headerlink" href="#iterative-method" title="Permalink to this headline">#</a></h3>
 <p>An iterative method to do this is to write the cout statement 10 times</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;iostream&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -762,8 +772,6 @@ title="Print to PDF"
 </dl>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Common loop types</div>
 <img alt="../../_images/Loops_in_cpp.png" class="align-center" src="../../_images/Loops_in_cpp.png" />
 <dl class="simple myst">
 <dt>Entry Controlled</dt><dd><p class="sd-card-text">In this type of loops the test condition is tested before entering the loop body.<code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops are entry controlled loops.</p>
@@ -783,11 +791,11 @@ Common loop types</div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">A for loop is a repetition control structure which allows us to write a loop that is executed a specific number of times. The loop enables us to perform n number of steps together in one line.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="2d17215a-a2e0-4b64-9887-863449bfeff6" name="20a8bfa1-8966-4f52-b788-8ffd93fa0bf5" type="radio">
-</input><label class="sd-tab-label" for="2d17215a-a2e0-4b64-9887-863449bfeff6">
+<input checked="checked" id="43784ff6-73b0-4e12-bce5-c67d575bd220" name="04f41522-881d-4b3c-aac6-7b824566f232" type="radio">
+</input><label class="sd-tab-label" for="43784ff6-73b0-4e12-bce5-c67d575bd220">
 syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">initialization</span><span class="w"> </span><span class="n">expr</span><span class="p">;</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">expr</span><span class="p">;</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">expr</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w">    </span>
+<span class="p">{</span><span class="w">  </span>
 <span class="w">      </span><span class="c1">// body of the loop(statements we want to execute)</span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
@@ -806,8 +814,8 @@ example: <code class="docutils literal notranslate"><span class="pre">i</span> <
 example: <code class="docutils literal notranslate"><span class="pre">i++</span></code>;</p></li>
 </ul>
 </div>
-<input id="b7e36a9a-b259-494e-982d-337d86bc9c96" name="20a8bfa1-8966-4f52-b788-8ffd93fa0bf5" type="radio">
-</input><label class="sd-tab-label" for="b7e36a9a-b259-494e-982d-337d86bc9c96">
+<input id="4b5e3853-1c81-4492-a927-768e5d064f45" name="04f41522-881d-4b3c-aac6-7b824566f232" type="radio">
+</input><label class="sd-tab-label" for="4b5e3853-1c81-4492-a927-768e5d064f45">
 example</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="w">   </span>
@@ -823,8 +831,8 @@ example</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="350933c9-2763-4509-9c15-ccf60a5f93e8" name="20a8bfa1-8966-4f52-b788-8ffd93fa0bf5" type="radio">
-</input><label class="sd-tab-label" for="350933c9-2763-4509-9c15-ccf60a5f93e8">
+<input id="725442fb-37e2-49c6-b059-eaa1e5ab6c1c" name="04f41522-881d-4b3c-aac6-7b824566f232" type="radio">
+</input><label class="sd-tab-label" for="725442fb-37e2-49c6-b059-eaa1e5ab6c1c">
 output</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello World
 Hello World
@@ -850,8 +858,8 @@ Hello World
 <p class="sd-card-text">While studying <code class="docutils literal notranslate"><span class="pre">for</span></code> loops we have seen that the number of iterations is known beforehand, i.e. the number of times the loop body is needed to be executed is known to us. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops are used in situations where we do not know the exact number of iterations of loop beforehand. The loop execution is terminated on the basis of test condition.</p>
 <p class="sd-card-text">We have already stated that a loop is mainly consisted of three statements – initialization expression, test expression, update expression. The syntax of the three loops – <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> mainly differs on the placement of these three statements.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="c96ec6e3-1de9-4c95-afab-00277a20fe4f" name="618e5097-f028-460c-a649-c05293165d0f" type="radio">
-</input><label class="sd-tab-label" for="c96ec6e3-1de9-4c95-afab-00277a20fe4f">
+<input checked="checked" id="2950e828-52d1-432f-b5bd-81f07dd4761a" name="aec665bb-65e9-4cc8-b632-72012e425518" type="radio">
+</input><label class="sd-tab-label" for="2950e828-52d1-432f-b5bd-81f07dd4761a">
 syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">initialization</span><span class="w"> </span><span class="n">expression</span><span class="p">;</span><span class="w"></span>
 <span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">test_expression</span><span class="p">)</span><span class="w"></span>
@@ -863,8 +871,8 @@ syntax</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="b510ff52-91a4-436a-9513-97063f1323c1" name="618e5097-f028-460c-a649-c05293165d0f" type="radio">
-</input><label class="sd-tab-label" for="b510ff52-91a4-436a-9513-97063f1323c1">
+<input id="556e4efc-aca2-4f1f-af31-3daf8c6c9392" name="aec665bb-65e9-4cc8-b632-72012e425518" type="radio">
+</input><label class="sd-tab-label" for="556e4efc-aca2-4f1f-af31-3daf8c6c9392">
 example</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
@@ -887,8 +895,8 @@ example</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="5c399eba-9e3a-4e64-a02a-c51593612a52" name="618e5097-f028-460c-a649-c05293165d0f" type="radio">
-</input><label class="sd-tab-label" for="5c399eba-9e3a-4e64-a02a-c51593612a52">
+<input id="aca37c32-6bff-4b4c-8d02-89d33a3b111a" name="aec665bb-65e9-4cc8-b632-72012e425518" type="radio">
+</input><label class="sd-tab-label" for="aca37c32-6bff-4b4c-8d02-89d33a3b111a">
 output</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello World
 Hello World
@@ -909,8 +917,8 @@ Hello World
 <p class="sd-card-text">In <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loops also the loop execution is terminated on the basis of test condition. The main difference between <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loop and <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is in <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loop the condition is tested at the end of loop body, i.e <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loop is exit controlled whereas the other two loops are entry controlled loops.</p>
 <p class="sd-card-text"><em>Note: In <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> loop the loop body will execute at least once irrespective of test condition.</em></p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="201fa718-fc5d-4200-9e24-04d45453796d" name="31edb0ed-3304-46d6-a252-25b50657d596" type="radio">
-</input><label class="sd-tab-label" for="201fa718-fc5d-4200-9e24-04d45453796d">
+<input checked="checked" id="e3e67795-24a6-46c3-a4ed-a736c9fa8e54" name="d6ea9587-a9d4-445e-8e27-dbd3c874c5f1" type="radio">
+</input><label class="sd-tab-label" for="e3e67795-24a6-46c3-a4ed-a736c9fa8e54">
 syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">initialization</span><span class="w"> </span><span class="n">expression</span><span class="p">;</span><span class="w"></span>
 <span class="k">do</span><span class="w"></span>
@@ -923,8 +931,8 @@ syntax</label><div class="sd-tab-content docutils">
 </div>
 <p class="sd-card-text"><em>Note: Notice the semi – colon(“;”) in the end of loop.</em></p>
 </div>
-<input id="147a90c6-4942-4ef2-8935-bb02ed8364da" name="31edb0ed-3304-46d6-a252-25b50657d596" type="radio">
-</input><label class="sd-tab-label" for="147a90c6-4942-4ef2-8935-bb02ed8364da">
+<input id="41ada35d-cd7a-4bb0-8616-1507aae70543" name="d6ea9587-a9d4-445e-8e27-dbd3c874c5f1" type="radio">
+</input><label class="sd-tab-label" for="41ada35d-cd7a-4bb0-8616-1507aae70543">
 example</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
@@ -947,8 +955,8 @@ example</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="7d864226-3392-445f-9498-390fef43fe65" name="31edb0ed-3304-46d6-a252-25b50657d596" type="radio">
-</input><label class="sd-tab-label" for="7d864226-3392-445f-9498-390fef43fe65">
+<input id="fc4e9cf2-1cb6-4767-b305-f252eaa35607" name="d6ea9587-a9d4-445e-8e27-dbd3c874c5f1" type="radio">
+</input><label class="sd-tab-label" for="fc4e9cf2-1cb6-4767-b305-f252eaa35607">
 output</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello World
 </pre></div>
@@ -1032,16 +1040,14 @@ Important Points</div>
 <p><strong>Nested loop</strong> means a <strong>loop statement</strong> inside another loop statement. That is why nested loops are also called as “<strong>loop inside loop</strong>“.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Syntax of nested loops</div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="c03ffa59-0732-41eb-a3da-ae5ac9fd9f9f" name="ed3ee024-81f4-458d-9790-8d96cf651e9a" type="radio">
-</input><label class="sd-tab-label" for="c03ffa59-0732-41eb-a3da-ae5ac9fd9f9f">
+<input checked="checked" id="2160f516-0dde-40d4-a37b-a87bf3bf593d" name="39bd10f3-2f38-414b-ad30-d5b3295c37e6" type="radio">
+</input><label class="sd-tab-label" for="2160f516-0dde-40d4-a37b-a87bf3bf593d">
 for</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initialization</span><span class="p">;</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
 <span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initialization</span><span class="p">;</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span>
+<span class="w">  </span>
 <span class="w">      </span><span class="c1">// statement of inside loop</span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
 
@@ -1050,13 +1056,13 @@ for</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="7f4b8dbe-525e-4b1b-bd03-761f67652d71" name="ed3ee024-81f4-458d-9790-8d96cf651e9a" type="radio">
-</input><label class="sd-tab-label" for="7f4b8dbe-525e-4b1b-bd03-761f67652d71">
+<input id="ab1d8279-275f-4931-89b7-454ccd7fef07" name="39bd10f3-2f38-414b-ad30-d5b3295c37e6" type="radio">
+</input><label class="sd-tab-label" for="ab1d8279-275f-4931-89b7-454ccd7fef07">
 while</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
 <span class="w">   </span><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span>
+<span class="w">  </span>
 <span class="w">      </span><span class="c1">// statement of inside loop</span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
 
@@ -1065,13 +1071,13 @@ while</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="2ebaffce-55e3-4b36-8620-768101e7d505" name="ed3ee024-81f4-458d-9790-8d96cf651e9a" type="radio">
-</input><label class="sd-tab-label" for="2ebaffce-55e3-4b36-8620-768101e7d505">
+<input id="c15707ee-0bbb-463c-8b6d-6bbefc22ac17" name="39bd10f3-2f38-414b-ad30-d5b3295c37e6" type="radio">
+</input><label class="sd-tab-label" for="c15707ee-0bbb-463c-8b6d-6bbefc22ac17">
 do while</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">do</span><span class="p">{</span><span class="w"></span>
 
 <span class="w">   </span><span class="k">do</span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span>
+<span class="w">  </span>
 <span class="w">      </span><span class="c1">// statement of inside loop</span>
 <span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">);</span><span class="w"></span>
 
@@ -1080,15 +1086,15 @@ do while</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="acbb5ef2-b164-4e32-91b0-c8d093de5cee" name="ed3ee024-81f4-458d-9790-8d96cf651e9a" type="radio">
-</input><label class="sd-tab-label" for="acbb5ef2-b164-4e32-91b0-c8d093de5cee">
+<input id="3c17fbbf-d840-42a1-9e42-48f6b9d9832d" name="39bd10f3-2f38-414b-ad30-d5b3295c37e6" type="radio">
+</input><label class="sd-tab-label" for="3c17fbbf-d840-42a1-9e42-48f6b9d9832d">
 do-while-for</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">do</span><span class="p">{</span><span class="w"></span>
 
 <span class="w">   </span><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span>
+<span class="w">  </span>
 <span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initialization</span><span class="p">;</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span>
+<span class="w">  </span>
 <span class="w">         </span><span class="c1">// statement of inside for loop</span>
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
 
@@ -1142,15 +1148,15 @@ do-while-for</label><div class="sd-tab-content docutils">
 <p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Continue</span></code> is also a loop control statement just like the break. <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement is opposite to that of <code class="docutils literal notranslate"><span class="pre">break</span></code> statement, instead of terminating the loop, it forces to execute the next iteration of the loop.</p>
 <p class="sd-card-text">As the name suggest the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement forces the loop to continue or execute the next iteration. When the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement is executed in the loop, the code inside the loop following the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement will be skipped and next iteration of the loop will begin.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="c261b596-8f9b-4488-8161-af44d76182e5" name="4db3089a-1b91-433b-9fa3-4793e2d20886" type="radio">
-</input><label class="sd-tab-label" for="c261b596-8f9b-4488-8161-af44d76182e5">
+<input checked="checked" id="50d497fc-3892-4248-8aa0-2350047710c5" name="a3ab8e79-6783-480e-9cb7-339f3335c987" type="radio">
+</input><label class="sd-tab-label" for="50d497fc-3892-4248-8aa0-2350047710c5">
 syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="9f65f606-459b-4e79-a2e5-1867f8990899" name="4db3089a-1b91-433b-9fa3-4793e2d20886" type="radio">
-</input><label class="sd-tab-label" for="9f65f606-459b-4e79-a2e5-1867f8990899">
+<input id="9354e2b5-cef4-4f70-b47f-20678687b658" name="a3ab8e79-6783-480e-9cb7-339f3335c987" type="radio">
+</input><label class="sd-tab-label" for="9354e2b5-cef4-4f70-b47f-20678687b658">
 example</label><div class="sd-tab-content docutils">
 <p class="sd-card-text">Consider the situation when you need to write a program which prints number from 1 to 10 and but not 6. It is specified that you have to do this using loop and only one loop is allowed to use.
 Here comes the usage of <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement. What we can do here is we can run a loop from 1 to 10 and every time we have to compare the value of iterator with 6. If it is equal to 6 we will use the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement to continue to next iteration without printing anything otherwise we will print the value.</p>
@@ -1178,8 +1184,8 @@ Here comes the usage of <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
-<input id="e4ea8579-e804-439c-98d0-593cb2ce63c7" name="4db3089a-1b91-433b-9fa3-4793e2d20886" type="radio">
-</input><label class="sd-tab-label" for="e4ea8579-e804-439c-98d0-593cb2ce63c7">
+<input id="8c057394-8509-41a4-b2cb-ed95cad88c49" name="a3ab8e79-6783-480e-9cb7-339f3335c987" type="radio">
+</input><label class="sd-tab-label" for="8c057394-8509-41a4-b2cb-ed95cad88c49">
 output</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">7</span> <span class="m">8</span> <span class="m">9</span> <span class="m">10</span> 
 </pre></div>
@@ -1195,8 +1201,6 @@ output</label><div class="sd-tab-content docutils">
 <h2>Part 5. Exercises<a class="headerlink" href="#part-5-exercises" title="Permalink to this headline">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-1. Print all numbers from 1 to n in reverse, comma seperated.</div>
 <p class="sd-card-text"><em>Note: The last element should not have a comma placed after it!</em></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter your number: <span class="m">5</span>
 Ouput :  <span class="m">5</span>, <span class="m">4</span>, <span class="m">3</span>, <span class="m">2</span>, <span class="m">1</span>
@@ -1206,8 +1210,6 @@ Ouput :  <span class="m">5</span>, <span class="m">4</span>, <span class="m">3</
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-2. Given a number n, print a right triangle similar to the one below.</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input: <span class="m">7</span>
 Output:
 *
@@ -1223,8 +1225,6 @@ Output:
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-3. Count the number of digits in n.</div>
 <p class="sd-card-text"><em>Hint: You’ll need to use math to do this.</em></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter your number: <span class="m">41256</span>
 Ouput : <span class="m">5</span>
@@ -1234,8 +1234,6 @@ Ouput : <span class="m">5</span>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-1. Print all prime numbers between 1 and n.</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>     Enter your number: <span class="m">20</span>
      Ouput : <span class="m">2</span> , <span class="m">3</span> ,  <span class="m">5</span> , <span class="m">7</span> , <span class="m">11</span> , <span class="m">13</span> , <span class="m">17</span>,  <span class="m">19</span>
 </pre></div>
@@ -1258,8 +1256,6 @@ Ouput : <span class="m">5</span>
 </section>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-1. Given a number n, print a pyramid with n rows.</div>
 <p class="sd-card-text"><em>Hint: You’ll want to find patterns for spaces &amp; <code class="docutils literal notranslate"><span class="pre">*</span></code>s</em></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input: <span class="m">5</span>
 Output:
@@ -1272,6 +1268,27 @@ Output:
 </div>
 </div>
 </div>
+<section id="submission">
+<h3>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt>To Receive Credit</dt><dd><p class="sd-card-text">Submit a compressed folder with all your files included within.</p>
+</dd>
+<dd><p class="sd-card-text"><a class="reference external" href="https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5">Windows File Compression</a></p>
+</dd>
+<dd><p class="sd-card-text"><a class="reference external" href="https://support.apple.com/guide/mac-help/zip-and-unzip-files-and-folders-on-mac-mchlp2528/mac">MacOS File Compression</a></p>
+</dd>
+<dt>Naming Conventions</dt><dd><p class="sd-card-text">Filename   =&gt; ex#.cpp</p>
+</dd>
+<dd><p class="sd-card-text">Compressed =&gt; lastname_firstname_lab#</p>
+</dd>
+<dd><p class="sd-card-text"><em>Note      =&gt; compressed files end in .zip</em></p>
+</dd>
+</dl>
+</div>
+</div>
+</section>
 </section>
 </section>
 
