@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lab 6 : Functions in C++ &#8212; CSC 200&lt;br&gt;Problem Solving for Science &amp; Engineering</title>
+    <title>Lab 7 : Array and Vector in C++ &#8212; CSC 200&lt;br&gt;Problem Solving for Science &amp; Engineering</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Week 7" href="../../lectures/w7.html" />
-    <link rel="prev" title="Week 6" href="../../lectures/w6.html" />
+    <link rel="next" title="Week 6" href="../../lectures/w7.html" />
+    <link rel="prev" title="Week 7" href="../../lectures/w6.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -223,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../../lectures/w6.html">
-   Week 6
+   Week 7
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -233,14 +233,14 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Lab 6 :  Functions in C++
+     Lab 7 :  Array and Vector in C++
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../lectures/w7.html">
-   Week 7
+   Week 6
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
@@ -250,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab-07/readme.html">
-     Lab 7 :  Array and Vector in C++
+     Lab 6 :  Functions in C++
     </a>
    </li>
   </ul>
@@ -482,69 +482,57 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-1-introduction">
-   Part 1. Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-2-functions-in-c">
-   Part 2.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     functions
-    </span>
-   </code>
-   in C++
+  <a class="reference internal nav-link" href="#part-1-array-in-c">
+   Part 1. Array in C++
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#function-definition-in-c">
+    <a class="reference internal nav-link" href="#array-declaration-in-c">
      <code class="docutils literal notranslate">
       <span class="pre">
-       function
+       array
       </span>
      </code>
-     Definition in c++
+     declaration in C++
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#function-declarations-in-c">
-     Function Declarations in c++
+    <a class="reference internal nav-link" href="#accessing-array-elements">
+     Accessing Array Elements
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#function-calls-in-c">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       function
-      </span>
-     </code>
-     calls in c++
+    <a class="reference internal nav-link" href="#the-elements-are-stored-at-contiguous-memory-locations">
+     <strong>
+      The elements are stored at contiguous memory locations
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-vectors-in-c">
+   Part 2. Vectors in C++
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterators">
+     Iterators
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#function-arguments">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       function
-      </span>
-     </code>
-     Arguments
+    <a class="reference internal nav-link" href="#capacity">
+     Capacity
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#default-values-for-parameters">
-     Default Values for Parameters
+    <a class="reference internal nav-link" href="#element-access">
+     Element access
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#main-function">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       main
-      </span>
-     </code>
-     Function
+    <a class="reference internal nav-link" href="#modifiers">
+     Modifiers
     </a>
    </li>
   </ul>
@@ -575,7 +563,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lab 6 :  Functions in C++</h1>
+                <h1>Lab 7 :  Array and Vector in C++</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -586,69 +574,57 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-1-introduction">
-   Part 1. Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-2-functions-in-c">
-   Part 2.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     functions
-    </span>
-   </code>
-   in C++
+  <a class="reference internal nav-link" href="#part-1-array-in-c">
+   Part 1. Array in C++
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#function-definition-in-c">
+    <a class="reference internal nav-link" href="#array-declaration-in-c">
      <code class="docutils literal notranslate">
       <span class="pre">
-       function
+       array
       </span>
      </code>
-     Definition in c++
+     declaration in C++
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#function-declarations-in-c">
-     Function Declarations in c++
+    <a class="reference internal nav-link" href="#accessing-array-elements">
+     Accessing Array Elements
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#function-calls-in-c">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       function
-      </span>
-     </code>
-     calls in c++
+    <a class="reference internal nav-link" href="#the-elements-are-stored-at-contiguous-memory-locations">
+     <strong>
+      The elements are stored at contiguous memory locations
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-vectors-in-c">
+   Part 2. Vectors in C++
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterators">
+     Iterators
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#function-arguments">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       function
-      </span>
-     </code>
-     Arguments
+    <a class="reference internal nav-link" href="#capacity">
+     Capacity
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#default-values-for-parameters">
-     Default Values for Parameters
+    <a class="reference internal nav-link" href="#element-access">
+     Element access
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#main-function">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       main
-      </span>
-     </code>
-     Function
+    <a class="reference internal nav-link" href="#modifiers">
+     Modifiers
     </a>
    </li>
   </ul>
@@ -680,145 +656,114 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-6-functions-in-c">
-<h1>Lab 6 :  Functions in C++<a class="headerlink" href="#lab-6-functions-in-c" title="Permalink to this headline">#</a></h1>
-<p>Welcome to the fifth CSC 200 lab! This will familiarize you with using Functions as well as give you some experience in their proper use. <strong>Be sure to read and follow all instructions unless otherwise specified.</strong>  You’ll find the table of contents for this lab below.</p>
-<section id="part-1-introduction">
-<h2>Part 1. Introduction<a class="headerlink" href="#part-1-introduction" title="Permalink to this headline">#</a></h2>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<p class="sd-card-text">A <code class="docutils literal notranslate"><span class="pre">function</span></code> is a group of statements that together perform a task. Every C++ program has at least one <code class="docutils literal notranslate"><span class="pre">function</span></code>, which is <code class="docutils literal notranslate"><span class="pre">main()</span></code>, and all the most trivial programs can define additional functions.</p>
-<p class="sd-card-text">You can divide up your code into separate functions. How you divide up your code among different functions is up to you, but logically the division usually is such that each function performs a specific task.</p>
-<p class="sd-card-text">A function <strong>declaration</strong> tells the compiler about a <code class="docutils literal notranslate"><span class="pre">function</span></code>’s name, <code class="docutils literal notranslate"><span class="pre">return</span></code> type, and parameters. A function <strong>definition</strong> provides the actual body of the function.</p>
-<p class="sd-card-text">The C++ standard library provides numerous built-in functions that your program can call. For example, function <code class="docutils literal notranslate"><span class="pre">strcat()</span></code> to concatenate two strings, function <code class="docutils literal notranslate"><span class="pre">memcpy()</span></code> to copy one memory location to another location and many more functions.</p>
-<p class="sd-card-text">Furthermore, The idea is to put some commonly or repeatedly done task together and make a function so that instead of writing the same code again and again for different inputs, we can call the function.</p>
-<p class="sd-card-text">A <code class="docutils literal notranslate"><span class="pre">function</span></code> is known with various names like a <code class="docutils literal notranslate"><span class="pre">method</span></code> or a <strong>sub-routine</strong> or a <strong>procedure</strong>.</p>
-</div>
-</div>
-</section>
-<section id="part-2-functions-in-c">
-<h2>Part 2. <code class="docutils literal notranslate"><span class="pre">functions</span></code> in C++<a class="headerlink" href="#part-2-functions-in-c" title="Permalink to this headline">#</a></h2>
-<section id="function-definition-in-c">
-<h3><code class="docutils literal notranslate"><span class="pre">function</span></code> Definition in c++<a class="headerlink" href="#function-definition-in-c" title="Permalink to this headline">#</a></h3>
-<p>The general form of a C++ <code class="docutils literal notranslate"><span class="pre">function</span></code> definition is as follows:</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">return_type</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">body</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">function</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<p class="sd-card-text">A C++ function definition consists of a function header and a function body. Here are all the parts of a function.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-7-array-and-vector-in-c">
+<h1>Lab 7 :  Array and Vector in C++<a class="headerlink" href="#lab-7-array-and-vector-in-c" title="Permalink to this headline">#</a></h1>
+<p>Welcome to the six session of  CSC 200 lab! This will familiarize you with using Array and Vectors as well as give you some experience in their proper use. <strong>Be sure to read and follow all instructions unless otherwise specified.</strong>  You’ll find the table of contents for this lab below.</p>
+<section id="part-1-array-in-c">
+<h2>Part 1. Array in C++<a class="headerlink" href="#part-1-array-in-c" title="Permalink to this headline">#</a></h2>
+<p>An array in C/C++ or be it in any programming language is a collection of similar data items stored at contiguous memory locations and elements can be accessed randomly using indices of an array.  They can be used to store collection of primitive data types such as int, float, double, char, etc of any particular type. To add to it, an array in C/C++ can store derived data types such as the structures, pointers etc. Given below is the picture representation of an array.<img alt="Screen Shot 2022-03-01 at 12.29.22 PM" src="../../_images/pic1.png" /></p>
 <dl class="simple myst">
-<dt>Return Type</dt><dd><p class="sd-card-text">A function may return a value. The <strong>return_type</strong> is the data type of the value the function returns. Some functions perform the desired operations without returning a value. In this case, the return_type is the keyword <strong>void</strong>.</p>
-</dd>
-<dt>Function Name</dt><dd><p class="sd-card-text">This is the actual name of the function. The function name and the parameter list together constitute the function signature.</p>
-</dd>
-<dt>Parameters</dt><dd><p class="sd-card-text">A parameter is like a placeholder. When a function is invoked, you pass a value to the parameter. This value is referred to as actual parameter or argument. The parameter list refers to the type, order, and number of the parameters of a function. Parameters are optional; that is, a function may contain no parameters.</p>
-</dd>
-<dt>Function Body</dt><dd><p class="sd-card-text">The function body contains a collection of statements that define what the function does.</p>
+<dt>Why do we need arrays?</dt><dd><p>We can use normal variables (v1, v2, v3, …) when we have a small number of objects, but if we want to store a large number of instances, it becomes difficult to manage them with normal variables. The idea of an array is to represent many instances in one variable.</p>
 </dd>
 </dl>
-</div>
-</div>
+<section id="array-declaration-in-c">
+<h3><code class="docutils literal notranslate"><span class="pre">array</span></code> declaration in C++<a class="headerlink" href="#array-declaration-in-c" title="Permalink to this headline">#</a></h3>
+<img alt="../../_images/pic2.png" class="align-center" src="../../_images/pic2.png" />
+<p>There are various ways in which we can declare an array.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">Following is the source code for a function called <strong>max()</strong>. This function takes two parameters num1 and num2 and return the biggest of both :</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="c1">// local variable declaration</span>
-<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">num2</span><span class="p">){</span><span class="w"></span>
-<span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num1</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num2</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"> </span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="function-declarations-in-c">
-<h3>Function Declarations in c++<a class="headerlink" href="#function-declarations-in-c" title="Permalink to this headline">#</a></h3>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<p class="sd-card-text">A <code class="docutils literal notranslate"><span class="pre">function</span></code> <strong>declaration</strong> tells the compiler about a <code class="docutils literal notranslate"><span class="pre">function</span></code> name and how to call the <code class="docutils literal notranslate"><span class="pre">function</span></code>. This is also known as <strong>function prototyping</strong>. The actual body of the <code class="docutils literal notranslate"><span class="pre">function</span></code> can be defined separately.</p>
-<p class="sd-card-text">A <code class="docutils literal notranslate"><span class="pre">function</span></code> declaration has the following parts :</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="27510559-b2b9-4af8-a699-c8a26b53478e" name="ea9172f4-af64-40d4-ad63-fc6045c6b742" type="radio">
-</input><label class="sd-tab-label" for="27510559-b2b9-4af8-a699-c8a26b53478e">
-syntax</label><div class="sd-tab-content docutils">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">return_type</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<input id="edb1e931-8658-47ee-bffc-3fbf0c28be4d" name="ea9172f4-af64-40d4-ad63-fc6045c6b742" type="radio">
-</input><label class="sd-tab-label" for="edb1e931-8658-47ee-bffc-3fbf0c28be4d">
-example</label><div class="sd-tab-content docutils">
-<p class="sd-card-text">For the above defined function max(), following is the function declaration :</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p class="sd-card-text">Parameter names are not important in function declaration only their type is required, so following is also valid declaration, though not recommended as it does not provide any code-clarity :</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p class="sd-card-text"><em>Note: Function declaration is <strong>required</strong> when you define a function in one source file and you call that function in another file. In such case, you should declare the function at the top of the file calling the function. However, even if all functions are used solely in the file they are defined in, it is still good practice to prototype all functions. Primary benefits to doing so:</em></p>
 <ul class="simple">
-<li><p class="sd-card-text">By telling the compiler all of the functions you have, the order you write them in does not matter.</p></li>
-<li><p class="sd-card-text">Organizational benefits - all of the functions contained in this file is conveniently listed at the top, along with their return types.</p></li>
+<li><p class="sd-card-text">specifying its type and size,</p></li>
+<li><p class="sd-card-text">specifying its type and size and initializing it.</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Array declaration by specifying size</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">arr1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
+
+<span class="c1">// With recent C/C++ versions, we can also</span>
+<span class="c1">// declare an array of user specified size</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">arr2</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Array declaration by initializing elements</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Compiler creates an array of size 4.</span>
+<span class="c1">// above is same as &quot;int arr[4] = {10, 20, 30, 40}&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Array declaration by specifying size and initializing</span>
+<span class="c1">// elements</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Compiler creates an array of size 6, initializes first</span>
+<span class="c1">// 4 elements as specified by user and rest two elements as</span>
+<span class="c1">// 0. above is same as &quot;int arr[] = {10, 20, 30, 40, 0, 0}&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><strong>advantages</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Random access of elements using array index.</p></li>
+<li><p class="sd-card-text">Use of fewer line of code as it creates a single array of multiple elements.</p></li>
+<li><p class="sd-card-text">Easy access to all the elements.</p></li>
+<li><p class="sd-card-text">Traversal through the array becomes easy using a single loop.</p></li>
+<li><p class="sd-card-text">Sorting becomes easy as it can be accomplished by writing fewer line of code.</p></li>
+</ul>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><strong>disadvantages</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Allows a fixed number of elements to be entered which is decided at the time of declaration so an array in C/C++ is not dynamic.</p></li>
+<li><p class="sd-card-text">Insertion and deletion of elements can be costly since the elements are needed to be managed in accordance with the new memory allocation.</p></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="function-calls-in-c">
-<h3><code class="docutils literal notranslate"><span class="pre">function</span></code> calls in c++<a class="headerlink" href="#function-calls-in-c" title="Permalink to this headline">#</a></h3>
-<p>While creating a C++ function, you give a definition of what the function has to do. To use a function, you will have to call or invoke that function.</p>
-<p>When a program calls a function, program control is transferred to the called function. A called function performs defined task and when it’s return statement is executed or when its function-ending closing brace is reached, it returns program control back to the main program.</p>
-<p>To call a function, you simply need to pass the required parameters along with function name, and if function returns a value, then you can store returned value. For example :</p>
+<section id="accessing-array-elements">
+<h3>Accessing Array Elements<a class="headerlink" href="#accessing-array-elements" title="Permalink to this headline">#</a></h3>
+<p>Array elements are accessed by using an integer index. Array index starts with 0 and goes till size of array minus 1. Also, Name of the array is also a pointer to the first element of array.</p>
+<img alt="../../_images/pic3.png" class="align-center" src="../../_images/pic3.png" />
+<br>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// included libraries</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="w">   </span>
-<span class="c1">// function declarations</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="c1">// main function</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="c1">// local variable declaration:</span>
-<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span>
-<span class="w">   </span><span class="c1">// calling a function to get max value.</span>
-<span class="w">   </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Max value is : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="cm">/* After main(), implement all of the prototyped functions */</span><span class="w"></span>
-
-<span class="c1">// function returning the max between two numbers</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="c1">// local variable declaration</span>
-<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">num2</span><span class="p">){</span><span class="w"></span>
-<span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num1</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num2</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"> </span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-10</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// this is same as arr[1] = 2</span>
+<span class="w">    </span><span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
@@ -826,117 +771,401 @@ example</label><div class="sd-tab-content docutils">
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">I kept max() function along with main() function and compiled the source code. While running final executable, it would produce the following result :</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Max</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">200</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">-10</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>No Index Out of bound Checking:</strong>
+There is no index out of bounds checking in C/C++, for example, the following program compiles fine but may produce unexpected output when run.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">This</span> <span class="n">C</span><span class="o">++</span> <span class="n">program</span> <span class="n">compiles</span> <span class="n">fine</span>
+<span class="o">//</span> <span class="k">as</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="n">bound</span>
+<span class="o">//</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">checked</span> <span class="ow">in</span> <span class="n">C</span><span class="o">.</span>
+
+<span class="c1">#include &lt;iostream&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+  
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+  
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>output</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mi">449684907</span> <span class="mi">4195777</span> 
+</pre></div>
+</div>
 </section>
-<section id="function-arguments">
-<h3><code class="docutils literal notranslate"><span class="pre">function</span></code> Arguments<a class="headerlink" href="#function-arguments" title="Permalink to this headline">#</a></h3>
+<section id="the-elements-are-stored-at-contiguous-memory-locations">
+<h3><strong>The elements are stored at contiguous memory locations</strong><a class="headerlink" href="#the-elements-are-stored-at-contiguous-memory-locations" title="Permalink to this headline">#</a></h3>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">C</span><span class="o">++</span> <span class="n">program</span> <span class="n">to</span> <span class="n">demonstrate</span> <span class="n">that</span> <span class="n">array</span> <span class="n">elements</span>
+<span class="o">//</span> <span class="n">are</span> <span class="n">stored</span> <span class="n">contiguous</span> <span class="n">locations</span>
+
+<span class="c1">#include &lt;iostream&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="n">an</span> <span class="n">array</span> <span class="n">of</span> <span class="mi">10</span> <span class="n">integers</span><span class="o">.</span>
+    <span class="o">//</span> <span class="n">If</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="n">stored</span> <span class="n">at</span>
+    <span class="o">//</span> <span class="n">address</span> <span class="n">x</span><span class="p">,</span> <span class="n">then</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span>
+    <span class="o">//</span> <span class="n">stored</span> <span class="n">at</span> <span class="n">x</span> <span class="o">+</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="o">//</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">is</span> <span class="n">stored</span> <span class="n">at</span> <span class="n">x</span> <span class="o">+</span>
+    <span class="o">//</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="o">//</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">on</span><span class="o">.</span>
+    <span class="nb">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">i</span><span class="p">;</span>
+  
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Size of integer in this compiler is &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="o">//</span> <span class="n">The</span> <span class="n">use</span> <span class="n">of</span> <span class="s1">&#39;&amp;&#39;</span> <span class="n">before</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">name</span><span class="p">,</span> <span class="n">yields</span>
+        <span class="o">//</span> <span class="n">address</span> <span class="n">of</span> <span class="n">variable</span><span class="o">.</span>
+        <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Address arr[&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;] is &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="p">:</span>
+<span class="n">Size</span> <span class="n">of</span> <span class="n">integer</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">compiler</span> <span class="ow">is</span> <span class="mi">4</span>
+<span class="n">Address</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="mh">0x7ffe75c32210</span>
+<span class="n">Address</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="mh">0x7ffe75c32214</span>
+<span class="n">Address</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">is</span> <span class="mh">0x7ffe75c32218</span>
+<span class="n">Address</span> <span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="ow">is</span> <span class="mh">0x7ffe75c3221c</span>
+<span class="n">Address</span> <span class="n">arr</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="ow">is</span> <span class="mh">0x7ffe75c32220</span>
+</pre></div>
+</div>
+<p><strong>Another way to traverse the array:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include&lt;bits/stdc++.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">};</span>
+    <span class="o">//</span> <span class="n">Way</span> <span class="mi">1</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+  
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="o">//</span> <span class="n">Way</span> <span class="mi">2</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;By Other Method:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">[</span><span class="n">arr</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+  
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="part-2-vectors-in-c">
+<h2>Part 2. Vectors in C++<a class="headerlink" href="#part-2-vectors-in-c" title="Permalink to this headline">#</a></h2>
+<p>Vectors are same as dynamic arrays with the ability to resize itself automatically when an element is inserted or deleted, with their storage being handled automatically by the container. Vector elements are placed in contiguous storage so that they can be accessed and traversed using iterators. In vectors, data is inserted at the end. Inserting at the end takes differential time, as sometimes there may be a need of extending the array. Removing the last element takes only constant time because no resizing happens. Inserting and erasing at the beginning or in the middle is linear in time.</p>
+<p>Certain functions associated with the vector are:</p>
+<section id="iterators">
+<h3>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">If a function is to use arguments, it must declare variables that accept the values of the arguments. These variables are called the <strong>formal parameters</strong> of the function.</p>
-<p class="sd-card-text">The formal parameters behave like other local variables inside the function and are created upon entry into the function and destroyed upon exit.</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-While calling a function, there are two ways that arguments can be passed to a function</div>
 <dl class="simple myst">
-<dt><a class="reference external" href="https://www.tutorialspoint.com/cplusplus/cpp_function_call_by_value.htm">Call by Value</a></dt><dd><p class="sd-card-text">This method copies the actual value of an argument into the formal parameter of the function. In this case, changes made to the parameter inside the function have no effect on the argument.</p>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorbegin-vectorend-c-stl/">begin()</a></dt><dd><p class="sd-card-text">Returns an iterator pointing to the first element in the vector</p>
 </dd>
-<dt><a class="reference external" href="https://www.tutorialspoint.com/cplusplus/cpp_function_call_by_pointer.htm">Call by Pointer</a></dt><dd><p class="sd-card-text">This method copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument (<strong>Don’t worry, you’ll learn this later</strong>).</p>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorbegin-vectorend-c-stl/">end()</a></dt><dd><p class="sd-card-text">Returns an iterator pointing to the theoretical element that follows the last element in the vector</p>
 </dd>
-<dt><a class="reference external" href="https://www.tutorialspoint.com/cplusplus/cpp_function_call_by_reference.htm">Call by Reference</a></dt><dd><p class="sd-card-text">This method copies the reference of an argument into the formal parameter. Inside the function, the reference is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument <strong>(Don’t worry you’ll learn this later)</strong>.</p>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-rbegin-and-rend-function-in-c-stl/">rbegin()</a></dt><dd><p class="sd-card-text">Returns a reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-rbegin-and-rend-function-in-c-stl/">rend()</a></dt><dd><p class="sd-card-text">Returns a reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-cbegin-vector-cend-c-stl/">cbegin()</a></dt><dd><p class="sd-card-text">Returns a constant iterator pointing to the first element in the vector.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-cbegin-vector-cend-c-stl/">cend()</a></dt><dd><p class="sd-card-text">Returns a constant iterator pointing to the theoretical element that follows the last element in the vector.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorcrend-vectorcrbegin-examples/">crbegin()</a></dt><dd><p class="sd-card-text">Returns a constant reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorcrend-vectorcrbegin-examples/">crend()</a></dt><dd><p class="sd-card-text">Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)</p>
+</dd>
+</dl>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to illustrate the</span>
+<span class="c1">// iterators in vector</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">g1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">g1</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Output of begin and end: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Output of cbegin and cend: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">cbegin</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">cend</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Output of rbegin and rend: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">ir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span><span class="w"> </span><span class="n">ir</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">ir</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ir</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Output of crbegin and crend : &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">ir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">crbegin</span><span class="p">();</span><span class="w"> </span><span class="n">ir</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">crend</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">ir</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ir</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="p">:</span>
+<span class="n">Output</span> <span class="n">of</span> <span class="n">begin</span> <span class="ow">and</span> <span class="n">end</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> 
+<span class="n">Output</span> <span class="n">of</span> <span class="n">cbegin</span> <span class="ow">and</span> <span class="n">cend</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> 
+<span class="n">Output</span> <span class="n">of</span> <span class="n">rbegin</span> <span class="ow">and</span> <span class="n">rend</span><span class="p">:</span> <span class="mi">5</span> <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span> 
+<span class="n">Output</span> <span class="n">of</span> <span class="n">crbegin</span> <span class="ow">and</span> <span class="n">crend</span> <span class="p">:</span> <span class="mi">5</span> <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+<section id="capacity">
+<h3>Capacity<a class="headerlink" href="#capacity" title="Permalink to this headline">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorempty-vectorsize-c-stl/">size()</a></dt><dd><p class="sd-card-text">Returns the number of elements in the vector.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-max_size-function-in-c-stl/">max_size()</a></dt><dd><p class="sd-card-text">Returns the maximum number of elements that the vector can hold.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-capacity-function-in-c-stl/">capacity()</a></dt><dd><p class="sd-card-text">Returns the size of the storage space currently allocated to the vector expressed as number of elements.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-resize-c-stl/">resize(n)</a></dt><dd><p class="sd-card-text">Resizes the container so that it contains ‘n’ elements.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorempty-vectorsize-c-stl/">empty()</a></dt><dd><p class="sd-card-text">Returns whether the container is empty.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-shrink_to_fit-function-in-c-stl/">shrink_to_fit()</a></dt><dd><p class="sd-card-text">Reduces the capacity of the container to fit its size and destroys all elements beyond the capacity.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/using-stdvectorreserve-whenever-possible/">reserve() </a></dt><dd><p class="sd-card-text">Requests that the vector capacity be at least enough to contain n elements.</p>
 </dd>
 </dl>
 </div>
 </div>
-<p class="sd-card-text">By default, C++ uses <strong>call by value</strong> to pass arguments. In general, this means that code within a function cannot alter the arguments used to call the function and above mentioned example while calling max() function used the same method.</p>
-</div>
-</div>
-</section>
-<section id="default-values-for-parameters">
-<h3>Default Values for Parameters<a class="headerlink" href="#default-values-for-parameters" title="Permalink to this headline">#</a></h3>
-<p>When you define a function, you can specify a default value for each of the last parameters. This value will be used if the corresponding argument is left blank when calling to the function.</p>
-<p>This is done by using the assignment operator and assigning values for the arguments in the function definition. If a value for that parameter is not passed when the function is called, the default given value is used, but if a value is specified, this default value is ignored and the passed value is used instead. Consider the following example :</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="w">   </span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="c1">// local variable declaration:</span>
-<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span>
-<span class="w">   </span><span class="c1">// calling a function to add the values.</span>
-<span class="w">   </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Total value is :&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;iostream&gt;</span>
+<span class="c1">#include &lt;vector&gt;</span>
 
-<span class="w">   </span><span class="c1">// calling a function again as follows.</span>
-<span class="w">   </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Total value is :&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">g1</span><span class="p">;</span>
+  
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">g1</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+  
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Size : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">g1</span><span class="o">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Capacity : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">g1</span><span class="o">.</span><span class="n">capacity</span><span class="p">();</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Max_Size : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">g1</span><span class="o">.</span><span class="n">max_size</span><span class="p">();</span>
+  
+    <span class="o">//</span> <span class="n">resizes</span> <span class="n">the</span> <span class="n">vector</span> <span class="n">size</span> <span class="n">to</span> <span class="mi">4</span>
+    <span class="n">g1</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+  
+    <span class="o">//</span> <span class="n">prints</span> <span class="n">the</span> <span class="n">vector</span> <span class="n">size</span> <span class="n">after</span> <span class="n">resize</span><span class="p">()</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Size : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">g1</span><span class="o">.</span><span class="n">size</span><span class="p">();</span>
+  
+    <span class="o">//</span> <span class="n">checks</span> <span class="k">if</span> <span class="n">the</span> <span class="n">vector</span> <span class="ow">is</span> <span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">g1</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">==</span> <span class="n">false</span><span class="p">)</span> <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Vector is not empty&quot;</span><span class="p">;</span>
+    <span class="k">else</span> <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Vector is empty&quot;</span><span class="p">;</span>
+  
+    <span class="o">//</span> <span class="n">Shrinks</span> <span class="n">the</span> <span class="n">vector</span>
+    <span class="n">g1</span><span class="o">.</span><span class="n">shrink_to_fit</span><span class="p">();</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Vector elements are: &quot;</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">g1</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">g1</span><span class="o">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+  
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Total</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">:</span><span class="mi">300</span><span class="w"></span>
-<span class="n">Total</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">:</span><span class="mi">120</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="p">:</span>
+<span class="n">Size</span> <span class="p">:</span> <span class="mi">5</span>
+<span class="n">Capacity</span> <span class="p">:</span> <span class="mi">8</span>
+<span class="n">Max_Size</span> <span class="p">:</span> <span class="mi">4611686018427387903</span>
+<span class="n">Size</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="n">Vector</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">empty</span>
+<span class="n">Vector</span> <span class="n">elements</span> <span class="n">are</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span>
 </pre></div>
-</div>
-</div>
 </div>
 </section>
-<section id="main-function">
-<h3><code class="docutils literal notranslate"><span class="pre">main</span></code> Function<a class="headerlink" href="#main-function" title="Permalink to this headline">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> function is a special function. Every C++ program must contain a function named <code class="docutils literal notranslate"><span class="pre">main</span></code>. It serves as the entry point for the program. The computer will start running the code from the beginning of the <code class="docutils literal notranslate"><span class="pre">main</span></code> function.</p>
+<section id="element-access">
+<h3>Element access<a class="headerlink" href="#element-access" title="Permalink to this headline">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-without parameters</div>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Without Parameters</span>
+<dl class="simple myst">
+<dt>[reference operator <a class="reference external" href="https://www.geeksforgeeks.org/vectoroperator-vectoroperator-c-stl/">g]</a></dt><dd><p class="sd-card-text">Returns a reference to the element at position ‘g’ in the vector</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorat-vectorswap-c-stl/">at(g)</a></dt><dd><p class="sd-card-text">Returns a reference to the element at position ‘g’ in the vector</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorfront-vectorback-c-stl/">front()</a></dt><dd><p class="sd-card-text">Returns a reference to the first element in the vector</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorfront-vectorback-c-stl/">back()</a></dt><dd><p class="sd-card-text">Returns a reference to the last element in the vector</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-data-function-in-c-stl/">data()</a></dt><dd><p class="sd-card-text">Returns a direct pointer to the memory array used internally by the vector to store its owned elements.</p>
+</dd>
+</dl>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to illustrate the</span>
+<span class="c1">// element accesser in vector</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="p">...</span><span class="w"></span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">g1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Reference operator [g] : g1[2] = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">g1</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">at : g1.at(4) = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">front() : g1.front() = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">front</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">back() : g1.back() = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">back</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// pointer to the first element</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g1</span><span class="p">.</span><span class="n">data</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The first element is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">pos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="p">:</span>
+<span class="n">Reference</span> <span class="n">operator</span> <span class="p">[</span><span class="n">g</span><span class="p">]</span> <span class="p">:</span> <span class="n">g1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">at</span> <span class="p">:</span> <span class="n">g1</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">front</span><span class="p">()</span> <span class="p">:</span> <span class="n">g1</span><span class="o">.</span><span class="n">front</span><span class="p">()</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">back</span><span class="p">()</span> <span class="p">:</span> <span class="n">g1</span><span class="o">.</span><span class="n">back</span><span class="p">()</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">The</span> <span class="n">first</span> <span class="n">element</span> <span class="ow">is</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</section>
+<section id="modifiers">
+<h3>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-with parameters</div>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// With Parameters</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<dl class="simple myst">
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-assign-in-c-stl/">assign() </a></dt><dd><p class="sd-card-text">It assigns new value to the vector elements by replacing old ones</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorpush_back-vectorpop_back-c-stl/">push_back()</a></dt><dd><p class="sd-card-text">It push the elements into a vector from the back</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorpush_back-vectorpop_back-c-stl/">pop_back()</a></dt><dd><p class="sd-card-text">It is used to pop or remove elements from a vector from the back.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-insert-function-in-c-stl/">insert()</a></dt><dd><p class="sd-card-text">It inserts new elements before the element at the specified position</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorclear-vectorerase-c-stl/">erase()</a></dt><dd><p class="sd-card-text">It is used to remove elements from a container from the specified position or range.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorat-vectorswap-c-stl/">swap()</a></dt><dd><p class="sd-card-text">It is used to swap the contents of one vector with another vector of same type. Sizes may differ.</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectorclear-vectorerase-c-stl/">clear()</a></dt><dd><p class="sd-card-text">It is used to remove all the elements of the vector container</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vector-emplace-function-in-c-stl/">emplace()</a></dt><dd><p class="sd-card-text">It extends the container by inserting new element at position</p>
+</dd>
+<dt><a class="reference external" href="https://www.geeksforgeeks.org/vectoremplace_back-c-stl/">emplace_back()</a></dt><dd><p class="sd-card-text">It is used to insert a new element into the vector container, the new element is added to the end of the vector</p>
+</dd>
+</dl>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++ program to illustrate the</span>
+<span class="c1">// Modifiers in vector</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="p">...</span><span class="w"></span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Assign vector</span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// fill the array with 10 five times</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The vector elements are: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// inserts 15 to the last position</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The last element is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// removes last element</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// prints the vector</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The vector elements are: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// inserts 5 at the beginning</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The first element is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// removes the first element</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The first element is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// inserts at the beginning</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The first element is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// Inserts 20 at the end</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The last element is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// erases the vector</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Vector size after erase(): &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// two vector to perform swap</span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">v1</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">v1</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">v2</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">v2</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">Vector 1: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Vector 2: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// Swaps v1 and v2</span>
+<span class="w">    </span><span class="n">v1</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">After Swap </span><span class="se">\n</span><span class="s">Vector 1: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Vector 2: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
-<p class="sd-card-text">The reason for having the parameter option for the <code class="docutils literal notranslate"><span class="pre">main</span></code> function is to allow input from the command line.</p>
-<p class="sd-card-text">When you use the <code class="docutils literal notranslate"><span class="pre">main</span></code> function with parameters, it saves every group of characters (separated by a space) after the program name as elements in an array named argv.</p>
-<p class="sd-card-text">Since the <code class="docutils literal notranslate"><span class="pre">main</span></code> function has the return type of int, the programmer must always have a return statement in the code. The number that is returned is used to inform the calling program what the result of the program’s execution was. Returning 0 signals that there were no problems.</p>
-</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="p">:</span>
+<span class="n">The</span> <span class="n">vector</span> <span class="n">elements</span> <span class="n">are</span><span class="p">:</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> 
+<span class="n">The</span> <span class="n">last</span> <span class="n">element</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">15</span>
+<span class="n">The</span> <span class="n">vector</span> <span class="n">elements</span> <span class="n">are</span><span class="p">:</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> 
+<span class="n">The</span> <span class="n">first</span> <span class="n">element</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">5</span>
+<span class="n">The</span> <span class="n">first</span> <span class="n">element</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">The</span> <span class="n">first</span> <span class="n">element</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">5</span>
+<span class="n">The</span> <span class="n">last</span> <span class="n">element</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">20</span>
+<span class="n">Vector</span> <span class="n">size</span> <span class="n">after</span> <span class="n">erase</span><span class="p">():</span> <span class="mi">0</span>
+
+<span class="n">Vector</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">2</span> 
+<span class="n">Vector</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">3</span> <span class="mi">4</span> 
+<span class="n">After</span> <span class="n">Swap</span> 
+<span class="n">Vector</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">3</span> <span class="mi">4</span> 
+<span class="n">Vector</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">2</span>
+</pre></div>
 </div>
 </section>
 </section>
@@ -944,41 +1173,68 @@ with parameters</div>
 <h2>Part 3. Exercises<a class="headerlink" href="#part-3-exercises" title="Permalink to this headline">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">…that will accept two arguments, a string and a character. Your function should search the string for and count the number of occurrences of the given character.</p>
+<p class="sd-card-text">Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.(write a function for it)</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+example 1</div>
 <p class="sd-card-text"><strong>input</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter the string to search:  Sally sells sea shells down by the sea shore.
-Enter the character to count: s
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
 </pre></div>
 </div>
 <p class="sd-card-text"><strong>output</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>There were 8 s&#39;s in that string.
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">…that will convert a list of characters into a string. Return this string to main and display it.</p>
+<div class="sd-card-title sd-font-weight-bold docutils">
+example 2</div>
 <p class="sd-card-text"><strong>input</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="s1">&#39;H&#39;</span>, <span class="s1">&#39;e&#39;</span>, <span class="s1">&#39;l&#39;</span>, <span class="s1">&#39;l&#39;</span>, <span class="s1">&#39;o&#39;</span><span class="o">]</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
 </pre></div>
 </div>
 <p class="sd-card-text"><strong>output</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello&quot;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">…that will return a random item from a list. Return this item to main and display it.</p>
+<div class="sd-card-title sd-font-weight-bold docutils">
+example 3</div>
 <p class="sd-card-text"><strong>input</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">5</span>, <span class="m">10</span>, <span class="m">15</span>, <span class="m">20</span>, <span class="m">25</span><span class="o">]</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="w"></span>
 </pre></div>
 </div>
-<p class="sd-card-text"><strong>[possible] output</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">15</span>
+<p class="sd-card-text"><strong>output</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span><span class="w"></span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">You are given N integers then store them in a  vector then Sort the integers value and print the sorted order.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+example</div>
+<p class="sd-card-text"><strong>input</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>// input
+<span class="m">1</span> <span class="m">6</span> <span class="m">10</span> <span class="m">8</span> <span class="m">4</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">4</span> <span class="m">6</span> <span class="m">8</span> <span class="m">10</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -989,7 +1245,6 @@ Enter the character to count: s
 <ol class="simple">
 <li><p class="sd-card-text">Exercise 1 completed.</p></li>
 <li><p class="sd-card-text">Exercise 2 completed.</p></li>
-<li><p class="sd-card-text">Exercise 3 completed.</p></li>
 </ol>
 </div>
 </div>
@@ -998,18 +1253,15 @@ Enter the character to count: s
 <h3>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
+<p class="sd-card-text">All submissions through Gradescope. Use naming conventions for your files relative to the exercise in the file. IE,</p>
+<ul class="simple">
+<li><p class="sd-card-text">x1_&lt;lastname&gt;_&lt;firstname&gt;.&lt;filetype&gt;</p></li>
+</ul>
+<p class="sd-card-text"><em>Note: do not include the angle brackets…</em></p>
 <dl class="simple myst">
-<dt>To Receive Credit</dt><dd><p class="sd-card-text">Submit a compressed folder with all your files included within.</p>
+<dt>Lab Submission</dt><dd><p class="sd-card-text">submit at least Exercise 1 accurately completed for attendance credit</p>
 </dd>
-<dd><p class="sd-card-text"><a class="reference external" href="https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5">Windows File Compression</a></p>
-</dd>
-<dd><p class="sd-card-text"><a class="reference external" href="https://support.apple.com/guide/mac-help/zip-and-unzip-files-and-folders-on-mac-mchlp2528/mac">MacOS File Compression</a></p>
-</dd>
-<dt>Naming Conventions</dt><dd><p class="sd-card-text">Filename   =&gt; ex#.cpp</p>
-</dd>
-<dd><p class="sd-card-text">Compressed =&gt; lastname_firstname_lab#</p>
-</dd>
-<dd><p class="sd-card-text"><em>Note      =&gt; compressed files end in .zip</em></p>
+<dt>Lab Final Submission</dt><dd><p class="sd-card-text">submit the rest of your exercises accurately completed prior to next lab</p>
 </dd>
 </dl>
 </div>
@@ -1049,13 +1301,13 @@ Enter the character to count: s
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Week 6</p>
+            <p class="prev-next-title">Week 7</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../../lectures/w7.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 7</p>
+        <p class="prev-next-title">Week 6</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
