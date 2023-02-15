@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lab 6 : Functions in C++ &#8212; CSC 200&lt;br&gt;Problem Solving for Science &amp; Engineering</title>
+    <title>Lab 7 : Functions in C++ &#8212; CSC 200&lt;br&gt;Problem Solving for Science &amp; Engineering</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Week 8" href="../../lectures/w8.html" />
-    <link rel="prev" title="Week 6" href="../../lectures/w7.html" />
+    <link rel="prev" title="Week 7" href="../../lectures/w7.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -223,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../lectures/w6.html">
-   Week 7
+   Week 6
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -233,14 +233,14 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab-06/readme.html">
-     Lab 7 :  Array and Vector in C++
+     Lab 6 :  Array and Vector in C++
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../../lectures/w7.html">
-   Week 6
+   Week 7
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
@@ -250,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Lab 6 :  Functions in C++
+     Lab 7 :  Functions in C++
     </a>
    </li>
   </ul>
@@ -575,7 +575,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lab 6 :  Functions in C++</h1>
+                <h1>Lab 7 :  Functions in C++</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -680,8 +680,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-6-functions-in-c">
-<h1>Lab 6 :  Functions in C++<a class="headerlink" href="#lab-6-functions-in-c" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-7-functions-in-c">
+<h1>Lab 7 :  Functions in C++<a class="headerlink" href="#lab-7-functions-in-c" title="Permalink to this headline">#</a></h1>
 <p>Welcome to the fifth CSC 200 lab! This will familiarize you with using Functions as well as give you some experience in their proper use. <strong>Be sure to read and follow all instructions unless otherwise specified.</strong>  You’ll find the table of contents for this lab below.</p>
 <section id="part-1-introduction">
 <h2>Part 1. Introduction<a class="headerlink" href="#part-1-introduction" title="Permalink to this headline">#</a></h2>
@@ -751,15 +751,15 @@ title="Print to PDF"
 <p class="sd-card-text">A <code class="docutils literal notranslate"><span class="pre">function</span></code> <strong>declaration</strong> tells the compiler about a <code class="docutils literal notranslate"><span class="pre">function</span></code> name and how to call the <code class="docutils literal notranslate"><span class="pre">function</span></code>. This is also known as <strong>function prototyping</strong>. The actual body of the <code class="docutils literal notranslate"><span class="pre">function</span></code> can be defined separately.</p>
 <p class="sd-card-text">A <code class="docutils literal notranslate"><span class="pre">function</span></code> declaration has the following parts :</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="faecb157-023c-46de-8e3c-94b68480fc57" name="134aa062-0624-4a0e-8cc1-2a9243f329d9" type="radio">
-</input><label class="sd-tab-label" for="faecb157-023c-46de-8e3c-94b68480fc57">
+<input checked="checked" id="032d4961-ec27-413c-97d0-a096dcc0476c" name="32d8e601-1a50-4325-9179-6b177cbe94b5" type="radio">
+</input><label class="sd-tab-label" for="032d4961-ec27-413c-97d0-a096dcc0476c">
 syntax</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">return_type</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="c358fa79-b445-4978-8aa9-eda1d04edf2b" name="134aa062-0624-4a0e-8cc1-2a9243f329d9" type="radio">
-</input><label class="sd-tab-label" for="c358fa79-b445-4978-8aa9-eda1d04edf2b">
+<input id="23229531-f690-4de7-aa18-36488b05369b" name="32d8e601-1a50-4325-9179-6b177cbe94b5" type="radio">
+</input><label class="sd-tab-label" for="23229531-f690-4de7-aa18-36488b05369b">
 example</label><div class="sd-tab-content docutils">
 <p class="sd-card-text">For the above defined function max(), following is the function declaration :</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="p">);</span><span class="w"></span>
@@ -1046,7 +1046,7 @@ Enter the character to count: s
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Week 6</p>
+            <p class="prev-next-title">Week 7</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../../lectures/w8.html" title="next page">
